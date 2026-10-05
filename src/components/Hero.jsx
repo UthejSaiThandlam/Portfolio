@@ -1,19 +1,14 @@
 import React, { useState } from 'react';
 import { 
   ArrowRight, 
-  Sparkles, 
+  FileText, 
   Phone, 
   Mail, 
   Copy, 
   Check, 
-  Terminal, 
-  ExternalLink,
-  ShieldCheck,
-  Cpu,
-  Layers,
-  FileDown
+  Sparkles,
+  MapPin
 } from 'lucide-react';
-import { Github, Linkedin } from './Icons';
 import { personalInfo } from '../data/portfolioData';
 import { useRole } from '../context/RoleContext';
 
@@ -27,183 +22,178 @@ export const Hero = ({ onOpenResumeModal }) => {
     setTimeout(() => setCopiedType(null), 2000);
   };
 
-  const getLensHeadline = () => {
+  const getLensTitle = () => {
     switch (activeLens) {
       case 'product':
-        return {
-          role: "Product-Minded Builder",
-          focus: "0→1 Product Ownership & Growth",
-          description: "Shipped a live multi-tenant SaaS to 130+ daily active users as sole full-stack owner — scoping features from vague requirements to deployed production."
-        };
+        return 'Product-Minded Engineer';
       case 'analyst':
-        return {
-          role: "Data & Telemetry Engineer",
-          focus: "SQL Modeling & Predictive Analytics",
-          description: "Hands-on experience turning operational relational data (MySQL) into interactive Recharts dashboards, N+1 query tuning, and dual-stacked ML ensembles."
-        };
+        return 'Data & Telemetry Engineer';
       case 'engineer':
       default:
-        return {
-          role: "AI RAG & Full-Stack",
-          focus: "Specialist & Systems Builder",
-          description: "I build production-ready software with Python, Django, React, and Groq/RAG — shipped a live multi-tenant SaaS to 130+ enterprise employees at Z.APPS."
-        };
+        return 'Software Developer';
     }
   };
 
-  const lensData = getLensHeadline();
+  const getLensTagline = () => {
+    switch (activeLens) {
+      case 'product':
+        return 'Shipped a live multi-tenant HRMS/ERP SaaS to 130+ daily users as sole full-stack owner. Comfortable turning ambiguous problems into shipped product features.';
+      case 'analyst':
+        return 'Data-driven problem solver with hands-on experience turning operational database records into Recharts dashboards, N+1 query tuning, and predictive ML ensembles.';
+      case 'engineer':
+      default:
+        return 'B.Tech CS (AI & ML) 2026 graduate. Shipped a live, production multi-tenant HRMS SaaS to 130+ employees at Z.APPS with Python, Django, React, and Groq LLMs.';
+    }
+  };
+
+  const bottomTechList = [
+    "Python", "Django", "React.js", "MySQL", "Groq LLM", "LangChain RAG", "Docker", "Git", "REST APIs"
+  ];
 
   return (
-    <section className="relative pt-12 pb-16 md:pt-20 md:pb-24 overflow-hidden bg-dev-grid">
+    <section className="relative pt-12 pb-16 md:pt-20 md:pb-24 overflow-hidden">
       
-      {/* Background radial glow accents (inspired by Image 1 & 2) */}
-      <div className="absolute top-1/4 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[350px] bg-cyan-500/10 blur-[120px] pointer-events-none rounded-full" />
-      <div className="absolute top-1/3 right-10 w-[450px] h-[350px] bg-purple-500/10 blur-[120px] pointer-events-none rounded-full" />
+      {/* Background radial glow behind the halo */}
+      <div className="absolute top-1/3 right-10 sm:right-20 w-[450px] h-[450px] bg-accent-coral/10 blur-[130px] pointer-events-none rounded-full" />
+      <div className="absolute top-1/4 left-10 w-[350px] h-[350px] bg-sky-500/5 blur-[120px] pointer-events-none rounded-full" />
 
       <div className="max-w-content mx-auto px-4 sm:px-6 relative z-10 space-y-16">
         
-        {/* Hero Top Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+        {/* Main Hero Row (Matching Jensen Omega layout) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
           
-          {/* Left Column (7 cols): Inspired directly by Image 1 */}
+          {/* Left Side: Typography & Buttons (7 cols) */}
           <div className="lg:col-span-7 space-y-6">
             
-            {/* 1. Available Badge (Image 1 Style) */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-950/40 border border-cyan-500/30 text-xs font-mono shadow-sm">
-              <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
-              <span className="text-cyan-300 font-medium">Available for Full-Stack & AI Roles</span>
+            {/* 1. "Hello." with coral dot */}
+            <div className="flex items-baseline">
+              <span className="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-heading text-white tracking-tight">
+                Hello
+              </span>
+              <span className="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-heading text-accent-coral ml-1">
+                .
+              </span>
             </div>
 
-            {/* 2. Name & Giant Gradient Headline */}
-            <div className="space-y-2">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-[-0.03em] font-heading text-white">
-                {personalInfo.name}
+            {/* 2. Coral Horizontal Line + "I'm Uthej Sai" */}
+            <div className="flex items-center gap-4">
+              <span className="w-12 sm:w-16 h-[2.5px] bg-accent-coral inline-block rounded-full"></span>
+              <span className="text-xl sm:text-2xl lg:text-3xl font-bold font-heading text-white tracking-tight">
+                I'm {personalInfo.name}
+              </span>
+            </div>
+
+            {/* 3. Big Bold Title (Software Developer / Lens Title) */}
+            <div className="space-y-3">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-heading text-white tracking-tight leading-tight">
+                {getLensTitle()}
               </h1>
 
-              <div className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-heading tracking-[-0.025em] leading-[1.15]">
-                <span className="gradient-text-cyan-purple">
-                  {lensData.role}
-                </span>
-                <span className="block text-white">
-                  {lensData.focus}
-                </span>
+              <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-sans max-w-xl">
+                {getLensTagline()}
+              </p>
+            </div>
+
+            {/* 4. Contact Strip (Phone + Email with 1-click copy) */}
+            <div className="flex flex-wrap items-center gap-3 pt-1 text-xs font-mono">
+              {/* Phone */}
+              <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#141B2D] border border-white/[0.08]">
+                <a href={`tel:${personalInfo.phone}`} className="text-slate-200 hover:text-accent-coral flex items-center gap-1.5">
+                  <Phone className="w-3.5 h-3.5 text-accent-coral" />
+                  <span>{personalInfo.phone}</span>
+                </a>
+                <button
+                  onClick={() => copyToClipboard(personalInfo.phone, 'phone')}
+                  className="text-slate-400 hover:text-white ml-1 p-0.5"
+                  title="Copy Phone"
+                >
+                  {copiedType === 'phone' ? <Check className="w-3 h-3 text-emerald-400" /> : <Copy className="w-3 h-3" />}
+                </button>
+              </div>
+
+              {/* Email */}
+              <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#141B2D] border border-white/[0.08]">
+                <a href={`mailto:${personalInfo.email}`} className="text-slate-200 hover:text-accent-coral flex items-center gap-1.5 truncate max-w-[200px]">
+                  <Mail className="w-3.5 h-3.5 text-sky-400" />
+                  <span className="truncate">{personalInfo.email}</span>
+                </a>
+                <button
+                  onClick={() => copyToClipboard(personalInfo.email, 'email')}
+                  className="text-slate-400 hover:text-white ml-1 p-0.5"
+                  title="Copy Email"
+                >
+                  {copiedType === 'email' ? <Check className="w-3 h-3 text-emerald-400" /> : <Copy className="w-3 h-3" />}
+                </button>
+              </div>
+
+              {/* Location */}
+              <div className="flex items-center gap-1.5 text-slate-400 px-2 py-1">
+                <MapPin className="w-3.5 h-3.5 text-accent-coral" />
+                <span>{personalInfo.location}</span>
               </div>
             </div>
 
-            {/* 3. Punchy Crisp Description */}
-            <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-sans max-w-xl">
-              {lensData.description}
-            </p>
-
-            {/* 4. Action Buttons (Matching Image 1 CTAs) */}
-            <div className="flex flex-wrap items-center gap-3.5 pt-2">
+            {/* 5. Two Action Buttons (Exact Jensen Omega Style) */}
+            <div className="flex flex-wrap items-center gap-4 pt-2">
               
-              {/* Primary Gradient CTA */}
+              {/* Solid Coral Button: "Got a project?" / "View Projects" */}
               <a
                 href="#projects"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-cyan-400 via-sky-400 to-purple-400 hover:opacity-95 text-slate-950 font-heading font-bold text-xs shadow-lg shadow-cyan-500/25 transition-all duration-200 hover:scale-[1.02]"
+                className="px-6 py-3 rounded-lg bg-accent-coral hover:bg-accent-coralHover text-white font-heading font-bold text-xs sm:text-sm shadow-lg shadow-accent-coral/25 transition-all duration-200 hover:scale-[1.02] flex items-center gap-2"
               >
                 <span>View Projects</span>
-                <ArrowRight className="w-3.5 h-3.5" />
+                <ArrowRight className="w-4 h-4" />
               </a>
 
-              {/* Secondary Dark Glassmorphic Button */}
-              <a
-                href="#contact"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#0E172A]/80 hover:bg-[#16223D] border border-white/10 text-white font-heading font-semibold text-xs transition-colors"
-              >
-                <span>Get in touch</span>
-              </a>
-
-              {/* Resume Trigger */}
+              {/* Outlined Button: "My resume" */}
               <button
                 onClick={() => onOpenResumeModal(activeLens)}
-                className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full bg-slate-900 hover:bg-slate-850 border border-slate-700/80 text-cyan-300 font-mono text-xs transition-colors"
+                className="px-6 py-3 rounded-lg border border-accent-coral text-white hover:bg-accent-coral/10 font-heading font-bold text-xs sm:text-sm transition-all duration-200 flex items-center gap-2"
               >
-                <FileDown className="w-3.5 h-3.5" />
-                <span>Resume ({activeLens})</span>
+                <FileText className="w-4 h-4 text-accent-coral" />
+                <span>My resume ({activeLens})</span>
               </button>
 
             </div>
 
-            {/* 5. Production AI Tech Bullet Strip (Matching Image 1 bottom strip) */}
-            <div className="pt-2 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs font-mono text-slate-400">
-              <span className="flex items-center gap-1.5 text-slate-300">
-                <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
-                Production AI Projects
-              </span>
-              <span>&bull;</span>
-              <span>Groq LLM</span>
-              <span>&bull;</span>
-              <span>LangChain & RAG</span>
-              <span>&bull;</span>
-              <span>Django REST</span>
-              <span>&bull;</span>
-              <span>React.js</span>
-            </div>
-
           </div>
 
-          {/* Right Column (5 cols): Photo Card & Profile HUD Scan (Image 1 & 2 Style) */}
-          <div className="lg:col-span-5 flex flex-col items-center sm:items-start lg:items-end">
+          {/* Right Side: Portrait inside Glowing Circular Halo + Geometric Chevrons (5 cols) */}
+          <div className="lg:col-span-5 flex justify-center items-center relative py-6">
             
-            <div className="w-full max-w-[340px] space-y-4">
-              
-              {/* Photo Card with Floating Specialty Badge (Image 1) */}
-              <div className="relative rounded-2xl overflow-hidden spec-card photo-glow border border-cyan-500/30 group">
-                <div className="aspect-[4/4.6] w-full overflow-hidden bg-slate-900">
-                  <img
-                    src={personalInfo.avatar}
-                    alt={personalInfo.name}
-                    className="w-full h-full object-cover object-top filter brightness-105 group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
+            {/* Outer Geometric Decorative Accents (as seen in Image 2) */}
+            {/* Top-Left Chevron */}
+            <div className="absolute top-2 left-6 sm:left-12 pointer-events-none opacity-80">
+              <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+                <path d="M26 8 L10 18 L26 28" stroke="#FF6551" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </div>
 
-                {/* Floating Bottom Specialty Badge (Image 1 style) */}
-                <div className="absolute bottom-3 left-3 right-3 p-3 rounded-xl bg-[#070B14]/90 backdrop-blur-md border border-white/10 space-y-0.5">
-                  <span className="text-[10px] font-mono uppercase text-slate-400 block tracking-wider">
-                    Specialty Focus
-                  </span>
-                  <div className="text-xs font-bold font-mono text-cyan-300 truncate">
-                    Multi-Tenant SaaS &bull; Groq RAG &bull; 130+ Users
-                  </div>
-                </div>
+            {/* Bottom-Right Chevron */}
+            <div className="absolute bottom-2 right-6 sm:right-12 pointer-events-none opacity-80">
+              <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+                <path d="M10 8 L26 18 L10 28" stroke="#FF6551" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </div>
+
+            {/* Glowing Coral Concentric Halo Frame */}
+            <div className="relative w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-full coral-halo-frame coral-ring-border flex items-center justify-center p-2.5">
+              
+              {/* Profile Photo in Suit */}
+              <div className="w-full h-full rounded-full overflow-hidden bg-[#111625] relative">
+                <img
+                  src={personalInfo.avatar}
+                  alt={personalInfo.name}
+                  className="w-full h-full object-cover object-top scale-105 filter brightness-105"
+                />
               </div>
 
-              {/* Profile Scan HUD Micro-Grid (Image 2 style) */}
-              <div className="spec-card p-3.5 space-y-2.5 text-xs font-mono">
-                <div className="flex items-center justify-between border-b border-white/[0.08] pb-1.5">
-                  <span className="text-[10px] text-slate-400 tracking-wider">PROFILE.SCAN</span>
-                  <span className="text-[10px] text-emerald-400 flex items-center gap-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
-                    ONLINE
-                  </span>
-                </div>
-
-                <div className="grid grid-cols-2 gap-2 text-[11px]">
-                  <div>
-                    <span className="text-slate-500 block text-[9px] uppercase">Focus</span>
-                    <span className="text-slate-200">AI-Powered SaaS</span>
-                  </div>
-                  <div>
-                    <span className="text-slate-500 block text-[9px] uppercase">Stack</span>
-                    <span className="text-slate-200">Django + React</span>
-                  </div>
-                  <div>
-                    <span className="text-slate-500 block text-[9px] uppercase">Signal</span>
-                    <span className="text-cyan-400">130+ Live Users</span>
-                  </div>
-                  <div>
-                    <span className="text-slate-500 block text-[9px] uppercase">Phone</span>
-                    <button
-                      onClick={() => copyToClipboard(personalInfo.phone, 'phone')}
-                      className="text-slate-200 hover:text-cyan-400 inline-flex items-center gap-1"
-                    >
-                      <span>{personalInfo.phone}</span>
-                      {copiedType === 'phone' ? <Check className="w-3 h-3 text-emerald-400" /> : <Copy className="w-3 h-3 text-slate-400" />}
-                    </button>
-                  </div>
-                </div>
+              {/* Floating Verified Badge */}
+              <div className="absolute -bottom-3 bg-[#0B0F19] border border-accent-coral/60 px-3.5 py-1 rounded-full text-[11px] font-mono text-white flex items-center gap-2 shadow-xl">
+                <span className="w-2 h-2 rounded-full bg-accent-coral animate-ping" />
+                <span className="font-semibold">130+ Live Users</span>
+                <span className="text-slate-400">&bull;</span>
+                <span className="text-slate-300">Z.APPS SaaS</span>
               </div>
 
             </div>
@@ -212,22 +202,15 @@ export const Hero = ({ onOpenResumeModal }) => {
 
         </div>
 
-        {/* Big Centered "About" Statement Block (Directly from Image 1) */}
-        <div id="about" className="pt-6 border-t border-white/[0.06] text-center max-w-3xl mx-auto space-y-4">
-          <div className="text-[11px] font-mono tracking-[0.2em] uppercase text-cyan-400 font-bold">
-            ABOUT
+        {/* Bottom Horizontal Tech Ticker (Exact Image 2 bottom strip) */}
+        <div className="pt-8 border-t border-white/[0.06]">
+          <div className="flex flex-wrap items-center justify-between gap-y-3 gap-x-6 text-xs sm:text-sm font-heading font-medium text-slate-400">
+            {bottomTechList.map((tech, idx) => (
+              <span key={idx} className="hover:text-white transition-colors cursor-default">
+                {tech}
+              </span>
+            ))}
           </div>
-
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-heading font-semibold text-white leading-snug">
-            I design and ship software systems that combine{' '}
-            <span className="text-cyan-400 font-bold">multi-tenant backends</span>,{' '}
-            <span className="text-purple-400 font-bold">Groq & RAG AI pipelines</span>, and{' '}
-            <span className="text-sky-300 font-bold">full-stack engineering</span> to automate real business workflows.
-          </h2>
-
-          <p className="text-xs sm:text-sm text-slate-400 leading-relaxed font-sans max-w-2xl mx-auto">
-            From diagnosing critical N+1 database performance bottlenecks to architecting O(n) org chart algorithms, my projects focus on accuracy, scalability, and clean architecture — not just demos.
-          </p>
         </div>
 
       </div>

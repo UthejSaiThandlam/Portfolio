@@ -2,6 +2,7 @@ import React from 'react';
 import { useRole } from '../context/RoleContext';
 import { Hero } from '../components/Hero';
 import { ImpactStrip } from '../components/ImpactStrip';
+import { AboutSection } from '../components/AboutSection';
 import { ProjectsSection } from '../components/ProjectsSection';
 import { ExperienceSection } from '../components/ExperienceSection';
 import { InteractiveConsole } from '../components/InteractiveConsole';
@@ -21,6 +22,7 @@ export const HomePage = ({ onOpenResumeModal }) => {
           <>
             <Hero onOpenResumeModal={onOpenResumeModal} />
             <ImpactStrip />
+            <AboutSection />
             <ExperienceSection />
             <ProductWorkSection />
             <ProjectsSection />
@@ -37,6 +39,7 @@ export const HomePage = ({ onOpenResumeModal }) => {
           <>
             <Hero onOpenResumeModal={onOpenResumeModal} />
             <ImpactStrip />
+            <AboutSection />
             <ProductWorkSection />
             <ProjectsSection />
             <InteractiveConsole />
@@ -54,6 +57,7 @@ export const HomePage = ({ onOpenResumeModal }) => {
           <>
             <Hero onOpenResumeModal={onOpenResumeModal} />
             <ImpactStrip />
+            <AboutSection />
             <ProjectsSection />
             <ExperienceSection />
             <InteractiveConsole />

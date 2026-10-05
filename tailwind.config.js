@@ -9,15 +9,15 @@ export default {
     extend: {
       colors: {
         bg: {
-          main: '#070B14',
-          surface: '#0E172A',
-          card: '#111C35',
-          cardHover: '#162444',
+          main: '#0B0F19',
+          surface: '#111625',
+          card: '#141B2D',
+          cardHover: '#1B243B',
         },
         border: {
-          subtle: '#1E293B',
-          accent: '#334155',
-          cyan: 'rgba(6, 182, 212, 0.4)',
+          subtle: '#1E2638',
+          accent: '#2D374D',
+          coral: 'rgba(255, 101, 81, 0.4)',
         },
         text: {
           primary: '#F8FAFC',
@@ -25,6 +25,8 @@ export default {
           muted: '#64748B',
         },
         accent: {
+          coral: '#FF6551',
+          coralHover: '#FF5038',
           cyan: '#06B6D4',
           sky: '#38BDF8',
           purple: '#A855F7',
@@ -38,10 +40,10 @@ export default {
         mono: ['JetBrains Mono', 'Fira Code', 'Consolas', 'monospace'],
       },
       maxWidth: {
-        'content': '1160px',
+        'content': '1180px',
       },
       animation: {
-        'pulse-subtle': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       }
     },
   },
