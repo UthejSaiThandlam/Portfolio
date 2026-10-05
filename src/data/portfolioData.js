@@ -1,171 +1,124 @@
 export const personalInfo = {
   name: "Thandlam Uthej Sai",
-  eyebrow: "Python · React · AI · Product",
+  title: "Full-Stack Engineer & AI Builder",
+  eyebrow: "Python · React · AI/ML · Product",
   heroHeadline: "Full-stack engineer building AI-powered products.",
   heroSubhead: "Learning product and business analysis.",
-  status: "B.Tech CS (AI & ML) 2026 · Open to full-time and internship roles",
+  phone: "+91 9966939345",
+  email: "uthejsaithandlam@gmail.com",
+  location: "Tirupati, Andhra Pradesh",
+  avatar: "/profile.jpg",
+  status: "B.Tech CS (AI & ML) 2026 · Open to Full-Time & Internships",
   social: {
     github: "https://github.com/UthejSaiThandlam",
     linkedin: "https://www.linkedin.com/in/thandlam-uthejsai-05752928b/",
-    email: "uthejsai.thandlam@gmail.com",
-    location: "India"
+    email: "uthejsaithandlam@gmail.com",
+    phone: "+91 9966939345"
   },
-  layers: [
-    {
-      label: "Core (Proven)",
-      badge: "Built & Shipped",
-      color: "border-sky-500/40 text-sky-400",
-      description: "Python, Django REST, React, multi-tenant SaaS, HRMS used by 130+ employees."
-    },
-    {
-      label: "Applied (Growing)",
-      badge: "Actively Building",
-      color: "border-teal-500/40 text-teal-400",
-      description: "RAG planner, ChromaDB embeddings, stacked ML ensemble, SQL telemetry."
-    },
-    {
-      label: "Direction (Learning)",
-      badge: "Exploring & Practicing",
-      color: "border-indigo-500/40 text-indigo-400",
-      description: "Product management PRDs, user stories, business analysis, feature prioritization."
-    }
-  ]
+  resumeLinks: {
+    engineer: "/resume-engineer.pdf",
+    product: "/resume-product.pdf",
+    analyst: "/resume-analyst.pdf"
+  }
 };
 
-// Exactly 4 honest numbers from the spec
 export const impactNumbers = [
-  {
-    value: "130+",
-    label: "LIVE USERS",
-    detail: "Z.APPS HRMS/ERP in active use"
-  },
-  {
-    value: "5",
-    label: "TENANCY LAYERS",
-    detail: "Data isolation & row-level ACL"
-  },
-  {
-    value: "O(n)",
-    label: "ORG CHART BUILDER",
-    detail: "Single-pass linear tree traversal"
-  },
-  {
-    value: "6 mo",
-    label: "INTERNSHIP",
-    detail: "Production ownership at Z.APPS"
-  }
+  { value: "130+", label: "LIVE USERS", detail: "Active production employees at Z.APPS" },
+  { value: "5", label: "TENANCY LAYERS", detail: "TenantScopedModel, Manager, JWT, HRRouter, Middleware" },
+  { value: "O(n)", label: "ORG TREE BUILDER", detail: "Single-pass algorithm with cycle detection" },
+  { value: "6 mo", label: "PRODUCTION INTERN", detail: "End-to-end full stack SaaS ownership" }
 ];
 
-// Experience: 1 company (Z.APPS), grouped under mini headings: Built, Designed, Fixed, Documented
-// Max 2 lines per bullet: Action verb -> what -> result
 export const experienceData = {
   company: "Z.APPS",
-  role: "Python Full-Stack Engineer Intern",
-  period: "Feb 2024 – Aug 2024",
-  location: "Hybrid",
-  summary: "Owned core modules of a multi-tenant HRMS/ERP platform deployed to 130+ daily corporate employees.",
+  role: "Python Full Stack Intern",
+  period: "Feb 2026 – Aug 2026",
+  location: "Sricity, India",
+  summary: "Owned core modules of a live multi-tenant HRMS/ERP SaaS used by 130+ employees, operating across leave, attendance, and organizational hierarchies.",
   groups: [
     {
       title: "Built",
       bullets: [
-        {
-          action: "Engineered",
-          text: "a multi-tenant data isolation layer with organization-scoped queries, preventing cross-tenant data leakage across all REST endpoints."
-        },
-        {
-          action: "Shipped",
-          text: "an O(n) single-pass department tree algorithm to generate dynamic enterprise org charts, replacing recursive database lookups."
-        }
+        { action: "Architected", text: "a 5-layer multi-tenancy system (TenantScopedModel, TenantManager, JWT auth, HRRouter multi-DB routing, and CompanyMiddleware)." },
+        { action: "Engineered", text: "an O(n) org chart module with cycle detection to render multi-root corporate hierarchies reliably." },
+        { action: "Built", text: "an AI chatbot with Groq LLM featuring RBAC-scoped audit-logged queries and dual auth paths (JWT for HR/Admin, employee-ID for staff)." },
+        { action: "Developed", text: "an AI-driven theme engine extracting color palettes from uploaded images for per-tenant branding." }
       ]
     },
     {
       title: "Designed",
       bullets: [
-        {
-          action: "Architected",
-          text: "an immutable double-entry leave ledger that stores audit-proof credit and debit events rather than mutating static counters."
-        },
-        {
-          action: "Drafted",
-          text: "end-to-end user stories and approval workflows for multi-tier manager delegation and leave conflict checks."
-        }
+        { action: "Architected", text: "the leave management microservice end-to-end with an immutable ledger balance pattern and automated notifications." },
+        { action: "Structured", text: "multi-tenant relational schemas (MySQL) ensuring strict tenant isolation and audit compliance." }
       ]
     },
     {
       title: "Fixed",
       bullets: [
-        {
-          action: "Eliminated",
-          text: "N+1 relational query bottlenecks across the leave calculation ledger, reducing page load query count from 180+ down to 3."
-        },
-        {
-          action: "Resolved",
-          text: "concurrent booking collisions by implementing database row-level locking on submission requests."
-        }
+        { action: "Diagnosed & Resolved", text: "a critical backend N+1 query bottleneck via bulk role-map refactor, slashing page query count from 180+ to 3." },
+        { action: "Eliminated", text: "leave booking race conditions using transactional row-level database locks." }
       ]
     },
     {
       title: "Documented",
       bullets: [
-        {
-          action: "Authored",
-          text: "comprehensive REST API contracts, deployment guides, and functional PRD specifications used by the engineering team."
-        }
+        { action: "Authored", text: "production API endpoint specifications and system architecture docs to enable seamless cross-team collaboration." }
       ]
     }
   ]
 };
 
-// 3 Featured projects + 2 more
 export const featuredProjects = [
   {
     id: "enterprise-hrms-erp",
     slug: "enterprise-hrms-erp",
     tag: "Shipped Production",
-    title: "Enterprise Multi-Tenant HRMS & ERP SaaS",
-    outcome: "Shipped to production and currently used daily by 130+ employees.",
-    description: "Multi-tenant HRMS platform with immutable leave ledgers, RBAC security, and an O(n) org chart builder.",
-    technologies: ["Python", "Django", "PostgreSQL", "React", "REST API"],
+    category: "Full Stack & SaaS",
+    title: "Enterprise Multi-Tenant HRMS/ERP SaaS",
+    outcome: "Live in production with 130+ daily active employees.",
+    description: "Production multi-tenant platform with 5-layer isolation, immutable leave ledger, O(n) org tree with cycle detection, and an AI theme engine.",
+    technologies: ["Python", "Django", "Django REST", "React.js", "MySQL", "Groq LLM", "JWT"],
+    keyStats: ["130+ Live Users", "5-Layer Tenancy", "O(n) Tree Builder", "N+1 Query Fix"],
     links: {
       github: "https://github.com/UthejSaiThandlam",
       live: "https://github.com/UthejSaiThandlam",
       hasCaseStudy: true
     },
     caseStudy: {
-      problem: "Z.APPS managed 130+ employees across diverse client organizations using disconnected spreadsheets, causing frequent leave balance disputes and slow approval tracking.",
+      problem: "Z.APPS needed a unified internal SaaS platform to manage 130+ corporate employees across client orgs, replacing error-prone spreadsheets that caused leave disputes.",
       users: [
         "HR Operations: Needs audit-proof records and one-click compliance exports.",
         "Team Leads: Needs immediate visibility into overlapping team absences.",
-        "Employees: Needs accurate real-time leave quotas without manual check-ins."
+        "Employees: Needs real-time leave balances and self-service AI assistance."
       ],
       decisions: [
-        "Chosen PostgreSQL row-level isolation via organization_id over separate DBs per tenant to keep hosting overhead minimal.",
-        "Implemented an immutable double-entry ledger (credits & debits) instead of mutating a single balance integer.",
-        "Constructed org hierarchy via single-pass hash indexing rather than recursive SQL queries to ensure stable memory limits."
+        "Five-layer multi-tenancy: TenantScopedModel, TenantManager, JWT claims, HRRouter multi-DB routing, and CompanyMiddleware.",
+        "Immutable double-entry ledger (credits & debits) for tamper-proof leave balances.",
+        "O(n) single-pass hash indexing with cycle detection for multi-root org trees."
       ],
       architecture: [
-        "Frontend: React SPA with role-gated views and clear status badges",
-        "API Layer: Django REST Framework with organization-scoped querysets",
-        "Data Layer: PostgreSQL with indexed ledger tables and foreign-key constraints"
+        "Frontend: React.js with role-gated interfaces and Recharts dashboards",
+        "Backend: Django REST Framework with TenantScoped querysets",
+        "AI Layer: Groq LLM chatbot with RBAC-scoped audit logging and image color extractor",
+        "Database: MySQL multi-tenant schemas with composite tenant indexing"
       ],
       challenges: [
         {
-          problem: "N+1 query bottleneck when rendering the company directory with department, manager, and leave balance lookups.",
-          solution: "Applied prefetch_related and select_related query batching, reducing queries from 180+ to 3."
+          problem: "N+1 query storm when rendering 130+ employee cards with role and leave lookups.",
+          solution: "Implemented bulk role-map refactor and batch prefetching, cutting queries from 180+ down to 3."
         },
         {
-          problem: "Race conditions when two employees applied for the same constrained calendar slots simultaneously.",
-          solution: "Introduced row-level locks on the employee ledger during the submission transaction window."
+          problem: "Multi-root departmental hierarchies causing circular reference crashes.",
+          solution: "Engineered single-pass tree builder with cycle detection sets."
         }
       ],
       results: [
-        "130+ active users onboarded with zero security boundary violations",
-        "Query count dropped from 180+ to 3 on core employee roster view",
-        "Zero leave balance discrepancies across consecutive monthly cycles"
+        "130+ active users onboarded with zero data leakage across tenants",
+        "N+1 query bottleneck resolved, boosting API reporting response by over 80%",
+        "Zero leave balance calculation errors during active monthly billing"
       ],
       lessons: [
-        "A modular monolith with clean domain boundaries beats microservices for small engineering teams.",
-        "Audit-proof ledgers save dozens of hours in customer support."
+        "A well-architected modular monolith with strict domain boundaries enables rapid delivery with minimal operational friction."
       ]
     }
   },
@@ -173,42 +126,44 @@ export const featuredProjects = [
     id: "ai-study-planner-rag",
     slug: "ai-study-planner-rag",
     tag: "Applied AI",
-    title: "Autonomous AI Study & Goal Planner (RAG)",
-    outcome: "Synthesizes multi-week curriculum syllabi into balanced daily study routines.",
-    description: "Retrieval-augmented generation system combining semantic vector embeddings with heuristic scheduling constraints.",
-    technologies: ["Python", "LangChain", "ChromaDB", "FastAPI", "React"],
+    category: "AI & LLMOps",
+    title: "AI Planner using RAG (Retrieval-Augmented Generation)",
+    outcome: "Transforms unstructured course syllabi into adaptive daily study schedules.",
+    description: "Context-aware assistant combining document retrieval, vector search embeddings, and LLM-generated personalized milestones.",
+    technologies: ["Python", "LangChain", "ChromaDB", "Groq / OpenAI API", "FastAPI", "React"],
+    keyStats: ["Vector Retrieval", "Semantic Chunking", "Heuristic Validation", "< 3.5s Ingestion"],
     links: {
       github: "https://github.com/UthejSaiThandlam",
       live: "https://github.com/UthejSaiThandlam",
       hasCaseStudy: true
     },
     caseStudy: {
-      problem: "Students struggle to convert dense multi-page course syllabi into realistic daily study calendars with spaced repetition.",
+      problem: "Learners struggle to convert massive syllabi into balanced daily routines with spaced repetition.",
       users: [
-        "Undergraduate students tackling dense technical courses.",
-        "Self-taught developers balancing work with interview prep."
+        "Undergraduate students managing multi-subject exams.",
+        "Engineers preparing for competitive coding rounds."
       ],
       decisions: [
-        "Used ChromaDB with semantic chunking to keep conceptual definitions intact rather than arbitrary character splits.",
-        "Combined LLM generation with deterministic rule validation to prevent unrealistic daily workloads."
+        "ChromaDB with semantic chunking to keep conceptual units intact.",
+        "Rule-based heuristic validator to enforce realistic daily hour limits."
       ],
       architecture: [
-        "Ingestion: PDF parsing -> Semantic chunking -> Vector embeddings",
-        "Vector Store: ChromaDB with metadata filtering on difficulty",
-        "Validation: Pydantic constraints checking max 6 study hours per day"
+        "Ingestion: PDF parsing -> Semantic chunking -> Dense vector embeddings",
+        "Storage: ChromaDB with difficulty tag filters",
+        "Orchestration: LangChain sequential chains with Pydantic output schemas"
       ],
       challenges: [
         {
-          problem: "LLM hallucinating 16-hour daily study schedules without respecting rest intervals.",
-          solution: "Enforced post-processing constraint validator before returning output to the frontend."
+          problem: "LLM hallucinations generating unrealistic 18-hour continuous study allocations.",
+          solution: "Added post-processing constraint validator enforcing human rest cycles."
         }
       ],
       results: [
-        "Average schedule generation completed in under 3.5 seconds",
-        "94% schedule completion rate reported in initial cohort trials"
+        "Under 3.5s average schedule synthesis time",
+        "94% schedule completion adherence reported in pilot tests"
       ],
       lessons: [
-        "Pair LLMs with deterministic heuristics for mathematical or time-bound tasks."
+        "Pair generative LLMs with deterministic validation for time and math constraints."
       ]
     }
   },
@@ -216,42 +171,44 @@ export const featuredProjects = [
     id: "heart-disease-ensemble",
     slug: "heart-disease-ensemble",
     tag: "Applied ML",
-    title: "Clinical Heart Disease Predictive Engine",
-    outcome: "Attained 91.8% ROC-AUC score while minimizing clinical false negatives.",
-    description: "Dual-stacked gradient boosted ensemble classifier with SHAP explainability for clinical risk attribution.",
-    technologies: ["Python", "Scikit-Learn", "XGBoost", "LightGBM", "Pandas"],
+    category: "Machine Learning & Data",
+    title: "Heart Disease Prediction — Dual Stacked Ensemble",
+    outcome: "91.8% ROC-AUC score with zero false negatives on high-risk test patients.",
+    description: "Dual stacked ensemble (regression/classification) pipeline optimizing recall with SHAP explainability for clinical cardiac risk assessment.",
+    technologies: ["Python", "Scikit-Learn", "XGBoost", "LightGBM", "Pandas", "NumPy", "SHAP"],
+    keyStats: ["91.8% ROC-AUC", "Zero High-Risk False Negatives", "SHAP Plots", "5-Fold CV"],
     links: {
       github: "https://github.com/UthejSaiThandlam",
       live: "https://github.com/UthejSaiThandlam",
       hasCaseStudy: true
     },
     caseStudy: {
-      problem: "Early cardiac triage requires high sensitivity because missing an at-risk patient (false negative) has severe health consequences.",
+      problem: "Early cardiac diagnosis datasets present noise, multicollinearity, and severe penalty for false negatives.",
       users: [
-        "Healthcare practitioners wanting an objective second-opinion triage score.",
-        "Clinical researchers evaluating feature importance in cardiovascular datasets."
+        "Medical triage practitioners needing objective risk attribution.",
+        "Clinical researchers evaluating non-linear biometric risk factors."
       ],
       decisions: [
-        "Tuned decision threshold to prioritize recall over raw accuracy to prevent false negatives.",
-        "Employed SHAP summary plots so practitioners can understand why a risk score was assigned."
+        "Decision threshold calibrated at 0.42 to prioritize sensitivity over raw accuracy.",
+        "SHAP summary plots for transparent clinical interpretability."
       ],
       architecture: [
-        "Preprocessing: RobustScaler for non-normal biometric features",
-        "Base Models: XGBoost, LightGBM, and Random Forest with 5-Fold Stratified CV",
-        "Meta Learner: L2-regularized Logistic Regression predicting calibrated probability"
+        "Data Pipeline: RobustScaler & VIF multicollinearity pruning",
+        "Base Learners: XGBoost, LightGBM, Random Forest with 5-Fold Stratified CV",
+        "Meta Learner: Regularized Logistic Regression predicting calibrated risk"
       ],
       challenges: [
         {
-          problem: "High multicollinearity between blood pressure and cholesterol biometric markers.",
-          solution: "Filtered redundant features with Variance Inflation Factor (VIF) > 5."
+          problem: "Multicollinearity between blood pressure and cholesterol biometric markers.",
+          solution: "Pruned features with Variance Inflation Factor (VIF) > 5."
         }
       ],
       results: [
-        "91.8% ROC-AUC on holdout test set",
-        "Zero high-risk false negatives observed with threshold calibrated at 0.42"
+        "91.8% ROC-AUC on holdout validation dataset",
+        "Zero critical false negatives on high-risk test subset"
       ],
       lessons: [
-        "Model explainability is just as critical as predictive accuracy in healthcare."
+        "In healthcare ML, interpretability is as critical as predictive accuracy."
       ]
     }
   }
@@ -261,25 +218,23 @@ export const moreProjects = [
   {
     id: "centralign-task-worker",
     slug: "centralign-task-worker",
-    tag: "Backend & Systems",
+    tag: "Systems",
     title: "CentrAlign Asynchronous Task Worker",
-    outcome: "Reliable background processing with zero message loss and exponential backoff.",
+    outcome: "Distributed task execution with Redis locking and exponential backoff.",
     technologies: ["Python", "FastAPI", "Redis", "Celery"],
     github: "https://github.com/UthejSaiThandlam"
   },
   {
     id: "product-teardown-slack",
     slug: "product-teardown-slack",
-    tag: "Product Thinking",
+    tag: "Product",
     title: "Enterprise Incident Workflow Teardown",
-    outcome: "User friction mapping proposing context tray to cut alert fatigue by 40%.",
+    outcome: "User friction teardown proposing contextual tray to reduce alert fatigue by 40%.",
     technologies: ["Figma", "User Journey", "PRD Scoping"],
     github: "https://github.com/UthejSaiThandlam"
   }
 ];
 
-// Product & Analyst artifacts (The PM/BA direction)
-// Clearly labeled as production work or self-initiated practice
 export const productArtifacts = [
   {
     id: "prd-hrms-leave",
@@ -366,32 +321,34 @@ Manual spreadsheet adjustments caused frequent leave balance discrepancies and s
   }
 ];
 
-// Skills: Grouped honestly into Proven vs Learning, no progress bars
 export const skillsData = [
   {
-    category: "Engineering (Proven)",
-    skills: ["Python", "Django", "Django REST Framework", "React", "REST APIs", "PostgreSQL", "Docker", "Git"]
+    category: "Languages & Core",
+    skills: ["Python", "SQL", "JavaScript", "HTML5", "CSS3"]
   },
   {
-    category: "AI / ML (Applied)",
-    skills: ["LLM APIs", "RAG Pipelines", "LangChain", "ChromaDB", "Scikit-Learn", "XGBoost", "Pandas", "NumPy"]
+    category: "Full Stack & Backend",
+    skills: ["Django", "Django REST Framework", "React.js", "REST APIs", "Microservices", "JWT Auth", "RBAC", "MySQL", "SQLite"]
   },
   {
-    category: "Data & Telemetry",
-    skills: ["SQL", "Relational Schema Design", "Query Optimization (EXPLAIN)", "Data Cleaning", "KPI Dashboards"]
+    category: "AI / ML & LLMs",
+    skills: ["RAG Pipelines", "Groq LLM Integration", "AI-Based Theme Extraction", "LangChain", "ChromaDB", "Scikit-Learn", "Pandas", "NumPy"]
   },
   {
-    category: "Product & Business (Learning)",
+    category: "Data Analysis & Reporting",
+    skills: ["Data Modeling", "Database Design", "Recharts Dashboards", "KPI Reporting", "Query Optimization", "Data Cleaning"]
+  },
+  {
+    category: "Product & Architecture (Learning)",
     isLearning: true,
-    skills: ["PRD Writing", "User Stories", "Acceptance Criteria", "Process Flow Mapping", "Feature Prioritization"]
+    skills: ["0-to-1 Ownership", "PRD Writing", "User Stories", "Process Flow Mapping", "Audit Logging", "Multi-Tenancy"]
   },
   {
-    category: "Tools & Infrastructure",
-    skills: ["Postman", "GitHub", "Linux / Bash", "Vite", "Tailwind CSS", "Figma"]
+    category: "Tools & Workflow",
+    skills: ["Git", "GitHub", "Postman", "VS Code", "Docker", "Vite", "Tailwind CSS"]
   }
 ];
 
-// How I Work: 7 clean steps
 export const howIWorkSteps = [
   { step: "01", name: "Problem", desc: "Identify root causes and operational pain points before writing code." },
   { step: "02", name: "Users", desc: "Map who touches the system and where cognitive friction occurs." },
@@ -403,12 +360,22 @@ export const howIWorkSteps = [
 ];
 
 export const educationData = {
-  degree: "B.Tech in Computer Science (Artificial Intelligence & Machine Learning)",
-  institution: "Graduating 2026",
-  cgpa: "8.23 / 10.0",
-  coursework: "Data Structures & Algorithms, DBMS, Machine Learning, Operating Systems, Computer Networks",
+  degrees: [
+    {
+      degree: "B.Tech in Computer Science & Engineering (AI & ML)",
+      institution: "Siddharth Institute of Engineering & Technology, Puttur",
+      year: "2022 – 2026",
+      score: "CGPA: 8.23 / 10.0"
+    },
+    {
+      degree: "Intermediate (MPC)",
+      institution: "Sri Chaitanya Junior College, Tirupati",
+      year: "2020 – 2022",
+      score: "Marks: 787 / 1000"
+    }
+  ],
   certifications: [
-    { title: "Python Full Stack Development", issuer: "Industry Credential (2024)" },
-    { title: "NPTEL Core Computer Science", issuer: "Ministry of Education / IIT (2023 - 2024)" }
+    { title: "The Joy of Computing Using Python", issuer: "NPTEL / IIT" },
+    { title: "Python Full Stack Development Certification", issuer: "Industry Credential" }
   ]
 };
