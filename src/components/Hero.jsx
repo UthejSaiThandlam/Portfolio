@@ -129,14 +129,14 @@ export const Hero = ({ onOpenResumeModal }) => {
           {/* Right Column: Narrative, Interactive Lens & CTAs (8 cols) */}
           <div className="lg:col-span-8 space-y-6">
             
-            <div className="space-y-2">
-              <span className="text-xs font-mono text-accent-blue tracking-wider block">
+            <div className="space-y-2.5">
+              <span className="text-[11px] font-mono text-accent-blue tracking-[0.14em] uppercase font-semibold block">
                 {personalInfo.eyebrow}
               </span>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-text-primary leading-tight">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-[-0.03em] font-heading text-white leading-[1.08]">
                 {personalInfo.name}
               </h1>
-              <p className="text-lg sm:text-xl font-medium text-text-primary">
+              <p className="text-xl sm:text-2xl font-semibold tracking-[-0.015em] font-heading text-text-primary leading-snug">
                 {personalInfo.heroHeadline}{' '}
                 <span className="text-text-secondary font-normal">
                   {personalInfo.heroSubhead}

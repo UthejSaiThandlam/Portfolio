@@ -8,13 +8,13 @@ export const ExperienceSection = () => {
         
         {/* Section Header */}
         <div className="space-y-2 mb-12">
-          <div className="text-xs font-mono text-text-muted">
+          <div className="text-[11px] font-mono uppercase tracking-[0.14em] text-accent-blue font-semibold">
             02 / PRODUCTION CONTEXT
           </div>
-          <h2 className="text-2xl sm:text-3xl font-semibold text-text-primary">
+          <h2 className="text-2xl sm:text-3xl font-bold font-heading tracking-tight text-white">
             Work Experience
           </h2>
-          <p className="text-sm text-text-secondary max-w-xl">
+          <p className="text-sm text-text-secondary max-w-xl leading-relaxed">
             Where the technical and product foundations were built and proven in production.
           </p>
         </div>

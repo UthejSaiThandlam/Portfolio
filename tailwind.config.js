@@ -28,8 +28,18 @@ export default {
         }
       },
       fontFamily: {
+        heading: ['Plus Jakarta Sans', 'Inter', 'system-ui', 'sans-serif'],
         sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
         mono: ['JetBrains Mono', 'Fira Code', 'Consolas', 'monospace'],
+      },
+      letterSpacing: {
+        'tighter': '-0.035em',
+        'tight': '-0.02em',
+        'snug': '-0.01em',
+        'normal': '0em',
+        'wide': '0.04em',
+        'wider': '0.08em',
+        'widest': '0.12em',
       },
       maxWidth: {
         'content': '1140px',

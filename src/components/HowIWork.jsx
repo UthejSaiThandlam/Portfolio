@@ -8,13 +8,13 @@ export const HowIWork = () => {
         
         {/* Section Header */}
         <div className="space-y-2 mb-12">
-          <div className="text-xs font-mono text-text-muted">
+          <div className="text-[11px] font-mono uppercase tracking-[0.14em] text-accent-blue font-semibold">
             05 / METHODOLOGY
           </div>
-          <h2 className="text-2xl sm:text-3xl font-semibold text-text-primary">
+          <h2 className="text-2xl sm:text-3xl font-bold font-heading tracking-tight text-white">
             How I Work
           </h2>
-          <p className="text-sm text-text-secondary max-w-xl">
+          <p className="text-sm text-text-secondary max-w-xl leading-relaxed">
             A 7-stage mental model from problem discovery to continuous iteration.
           </p>
         </div>

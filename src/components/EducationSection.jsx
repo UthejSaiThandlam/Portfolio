@@ -9,10 +9,10 @@ export const EducationSection = () => {
         
         {/* Section Header */}
         <div className="space-y-2 mb-12">
-          <div className="text-xs font-mono text-text-muted">
+          <div className="text-[11px] font-mono uppercase tracking-[0.14em] text-accent-blue font-semibold">
             06 / ACADEMICS & CREDENTIALS
           </div>
-          <h2 className="text-2xl sm:text-3xl font-semibold text-text-primary">
+          <h2 className="text-2xl sm:text-3xl font-bold font-heading tracking-tight text-white">
             Education & Certifications
           </h2>
         </div>

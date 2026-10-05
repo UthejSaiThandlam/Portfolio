@@ -26,13 +26,13 @@ export const ProjectsSection = () => {
         {/* Section Header with Category Filter */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
           <div className="space-y-2">
-            <div className="text-xs font-mono text-text-muted">
+            <div className="text-[11px] font-mono uppercase tracking-[0.14em] text-accent-blue font-semibold">
               01 / PROVEN & APPLIED WORK
             </div>
-            <h2 className="text-2xl sm:text-3xl font-semibold text-text-primary">
+            <h2 className="text-2xl sm:text-3xl font-bold font-heading tracking-tight text-white">
               Featured Projects
             </h2>
-            <p className="text-sm text-text-secondary max-w-xl">
+            <p className="text-sm text-text-secondary max-w-xl leading-relaxed">
               Shipped production systems and working prototypes. Each card features real outcomes and an architectural case study.
             </p>
           </div>
