@@ -4,6 +4,7 @@ import { Hero } from '../components/Hero';
 import { ImpactStrip } from '../components/ImpactStrip';
 import { ProjectsSection } from '../components/ProjectsSection';
 import { ExperienceSection } from '../components/ExperienceSection';
+import { InteractiveConsole } from '../components/InteractiveConsole';
 import { ProductWorkSection } from '../components/ProductWorkSection';
 import { SkillsSection } from '../components/SkillsSection';
 import { HowIWork } from '../components/HowIWork';
@@ -20,10 +21,10 @@ export const HomePage = ({ onOpenResumeModal }) => {
           <>
             <Hero onOpenResumeModal={onOpenResumeModal} />
             <ImpactStrip />
-            {/* Product lens emphasizes ownership and PM artifacts first */}
             <ExperienceSection />
             <ProductWorkSection />
             <ProjectsSection />
+            <InteractiveConsole />
             <HowIWork />
             <SkillsSection />
             <EducationSection />
@@ -36,9 +37,9 @@ export const HomePage = ({ onOpenResumeModal }) => {
           <>
             <Hero onOpenResumeModal={onOpenResumeModal} />
             <ImpactStrip />
-            {/* Analyst lens emphasizes dashboards and data modeling first */}
             <ProductWorkSection />
             <ProjectsSection />
+            <InteractiveConsole />
             <ExperienceSection />
             <SkillsSection />
             <HowIWork />
@@ -53,9 +54,9 @@ export const HomePage = ({ onOpenResumeModal }) => {
           <>
             <Hero onOpenResumeModal={onOpenResumeModal} />
             <ImpactStrip />
-            {/* Standard engineer flow: Projects -> Experience -> Product -> Skills */}
             <ProjectsSection />
             <ExperienceSection />
+            <InteractiveConsole />
             <ProductWorkSection />
             <SkillsSection />
             <HowIWork />

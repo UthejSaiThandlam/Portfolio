@@ -9,20 +9,25 @@ export default {
     extend: {
       colors: {
         bg: {
-          main: '#0B1020',
-          card: '#121A2F',
-          cardHover: '#18233F',
+          main: '#070B14',
+          surface: '#0E172A',
+          card: '#111C35',
+          cardHover: '#162444',
         },
         border: {
-          subtle: '#1F2A44',
-          accent: '#334771',
+          subtle: '#1E293B',
+          accent: '#334155',
+          cyan: 'rgba(6, 182, 212, 0.4)',
         },
         text: {
-          primary: '#E8ECF5',
-          secondary: '#9AA6BF',
+          primary: '#F8FAFC',
+          secondary: '#94A3B8',
           muted: '#64748B',
         },
         accent: {
+          cyan: '#06B6D4',
+          sky: '#38BDF8',
+          purple: '#A855F7',
           blue: '#4F8CFF',
           teal: '#2DD4BF',
         }
@@ -32,17 +37,11 @@ export default {
         sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
         mono: ['JetBrains Mono', 'Fira Code', 'Consolas', 'monospace'],
       },
-      letterSpacing: {
-        'tighter': '-0.035em',
-        'tight': '-0.02em',
-        'snug': '-0.01em',
-        'normal': '0em',
-        'wide': '0.04em',
-        'wider': '0.08em',
-        'widest': '0.12em',
-      },
       maxWidth: {
-        'content': '1140px',
+        'content': '1160px',
+      },
+      animation: {
+        'pulse-subtle': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       }
     },
   },

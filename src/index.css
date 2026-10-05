@@ -10,16 +10,29 @@ body {
   margin: 0;
   min-height: 100vh;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  background-color: #0B1020;
+  background-color: #070B14;
   color: #E8ECF5;
   line-height: 1.6;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  background-image: 
+    radial-gradient(circle at 20% 15%, rgba(6, 182, 212, 0.08) 0%, transparent 45%),
+    radial-gradient(circle at 80% 20%, rgba(147, 51, 234, 0.07) 0%, transparent 45%),
+    radial-gradient(circle at 50% 60%, rgba(56, 189, 248, 0.04) 0%, transparent 50%);
+  background-attachment: fixed;
 }
 
-/* Headings Typography Overhaul */
+/* Cyber & Minimal Grid pattern (as seen in Image 2) */
+.bg-dev-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+}
+
+/* Modern Headings Typography */
 h1, h2, h3, h4, .font-heading {
   font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
   letter-spacing: -0.025em;
@@ -32,54 +45,72 @@ h1, h2, h3, h4, .font-heading {
   font-feature-settings: 'zero' 1, 'tnum' 1;
 }
 
-/* Card Surface conforming to the design spec */
+/* Modern Card Surface with Subtle Glassmorphism */
 .spec-card {
-  background-color: #121A2F;
-  border: 1px solid #1F2A44;
-  border-radius: 14px;
-  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  background: rgba(14, 23, 42, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 16px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .spec-card:hover {
-  border-color: #334771;
-  box-shadow: 0 4px 20px -4px rgba(79, 140, 255, 0.08);
+  border-color: rgba(6, 182, 212, 0.3);
+  box-shadow: 0 12px 30px -10px rgba(6, 182, 212, 0.12);
+  transform: translateY(-2px);
 }
 
-/* Monospace tags: refined border, crisp tracking */
+/* Pill tags with crisp borders */
 .spec-tag {
   font-family: 'JetBrains Mono', monospace;
   font-size: 11.5px;
   font-weight: 500;
   letter-spacing: 0.02em;
-  color: #9AA6BF;
-  border: 1px solid #1F2A44;
+  color: #94A3B8;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 9999px;
-  padding: 2.5px 10px;
+  padding: 3px 12px;
   line-height: 1.4;
-  background: transparent;
-  transition: border-color 0.2s ease, color 0.2s ease;
+  background: rgba(15, 23, 42, 0.5);
+  transition: all 0.2s ease;
 }
 
 .spec-tag:hover {
-  border-color: #4F8CFF;
-  color: #E8ECF5;
+  border-color: #06B6D4;
+  color: #F1F5F9;
+  background: rgba(6, 182, 212, 0.1);
 }
 
-/* Subtle clean scrollbar */
+/* Gradient Text helper */
+.gradient-text-cyan-purple {
+  background: linear-gradient(135deg, #22D3EE 0%, #38BDF8 40%, #A855F7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Floating photo glow */
+.photo-glow {
+  box-shadow: 
+    0 0 50px -10px rgba(6, 182, 212, 0.25),
+    0 0 80px -20px rgba(168, 85, 247, 0.2);
+}
+
+/* Custom sleek scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0B1020;
+  background: #070B14;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1F2A44;
+  background: #1E293B;
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #334771;
+  background: #334155;
 }
