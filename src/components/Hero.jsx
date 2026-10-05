@@ -6,7 +6,6 @@ import {
   Mail, 
   Copy, 
   Check, 
-  Sparkles,
   MapPin
 } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
@@ -37,12 +36,12 @@ export const Hero = ({ onOpenResumeModal }) => {
   const getLensTagline = () => {
     switch (activeLens) {
       case 'product':
-        return 'Shipped a live multi-tenant HRMS/ERP SaaS to 130+ daily users as sole full-stack owner. Comfortable turning ambiguous problems into shipped product features.';
+        return 'Product-minded builder focused on 0→1 software delivery, clear product specifications, and user-centric features.';
       case 'analyst':
         return 'Data-driven problem solver with hands-on experience turning operational database records into Recharts dashboards, N+1 query tuning, and predictive ML ensembles.';
       case 'engineer':
       default:
-        return 'B.Tech CS (AI & ML) 2026 graduate. Shipped a live, production multi-tenant HRMS SaaS to 130+ employees at Z.APPS with Python, Django, React, and Groq LLMs.';
+        return 'B.Tech CS (AI & ML) 2026 graduate. Building production-ready software systems with Python, Django, React, and Groq/RAG integrations.';
     }
   };
 
@@ -54,7 +53,7 @@ export const Hero = ({ onOpenResumeModal }) => {
     <section className="relative pt-12 pb-16 md:pt-20 md:pb-24 overflow-hidden">
       
       {/* Background radial glow behind the halo */}
-      <div className="absolute top-1/3 right-10 sm:right-20 w-[450px] h-[450px] bg-accent-coral/10 blur-[130px] pointer-events-none rounded-full" />
+      <div className="absolute top-1/3 right-10 sm:right-20 w-[450px] h-[450px] bg-accent-coral/10 blur-[120px] pointer-events-none rounded-full" />
       <div className="absolute top-1/4 left-10 w-[350px] h-[350px] bg-sky-500/5 blur-[120px] pointer-events-none rounded-full" />
 
       <div className="max-w-content mx-auto px-4 sm:px-6 relative z-10 space-y-16">
@@ -136,7 +135,7 @@ export const Hero = ({ onOpenResumeModal }) => {
             {/* 5. Two Action Buttons (Exact Jensen Omega Style) */}
             <div className="flex flex-wrap items-center gap-4 pt-2">
               
-              {/* Solid Coral Button: "Got a project?" / "View Projects" */}
+              {/* Solid Coral Button: "View Projects" */}
               <a
                 href="#projects"
                 className="px-6 py-3 rounded-lg bg-accent-coral hover:bg-accent-coralHover text-white font-heading font-bold text-xs sm:text-sm shadow-lg shadow-accent-coral/25 transition-all duration-200 hover:scale-[1.02] flex items-center gap-2"
@@ -191,9 +190,9 @@ export const Hero = ({ onOpenResumeModal }) => {
               {/* Floating Verified Badge */}
               <div className="absolute -bottom-3 bg-[#0B0F19] border border-accent-coral/60 px-3.5 py-1 rounded-full text-[11px] font-mono text-white flex items-center gap-2 shadow-xl">
                 <span className="w-2 h-2 rounded-full bg-accent-coral animate-ping" />
-                <span className="font-semibold">130+ Live Users</span>
+                <span className="font-semibold">Full-Stack & AI Builder</span>
                 <span className="text-slate-400">&bull;</span>
-                <span className="text-slate-300">Z.APPS SaaS</span>
+                <span className="text-slate-300">B.Tech 2026</span>
               </div>
 
             </div>

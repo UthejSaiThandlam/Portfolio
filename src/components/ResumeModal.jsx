@@ -18,18 +18,18 @@ export const ResumeModal = ({ isOpen, onClose, initialLens = 'engineer' }) => {
       case 'product':
         return {
           title: "Founding Product Manager / Product Management Resume",
-          summary: "Recent CS (AI & ML) graduate who has shipped and owned a live product end-to-end (0 -> 1 to 130+ daily users as sole full-stack owner). Comfortable with SQL and data-driven decisions, builds fast with AI tools (Groq LLM, RAG), and pairs strong technical fluency with product judgment.",
+          summary: "Recent CS (AI & ML) graduate with hands-on experience shipping full-stack products end-to-end. Comfortable with SQL and data-driven decisions, builds fast with AI tools (Groq LLM, RAG), and pairs strong technical fluency with product execution.",
           strengths: [
-            "0 -> 1 Product Ownership: Shipped a real product to 130+ users end-to-end (requirements, UX decisions, build, iteration).",
+            "0 -> 1 Product Ownership: Shipped production software end-to-end (requirements, UX decisions, build, iteration).",
             "Data & SQL: SQL-backed reporting logic and interactive Recharts dashboards.",
             "AI-Native Builder: Groq LLM chatbot, RAG planning assistant, AI-assisted workflows.",
-            "Vague -> Shipped: Took ambiguous asks ('personalize portal per company') and turned them into a shipped AI-driven theme engine."
+            "Feature Delivery: Designed and shipped an AI-driven dynamic theme engine for multi-tenant portal customization."
           ]
         };
       case 'analyst':
         return {
           title: "Data Analyst & Business Telemetry Resume",
-          summary: "Data-driven B.Tech Computer Science (AI & ML) graduate (2026, CGPA 8.23) with hands-on experience turning raw operational data into reports, dashboards, and decisions on a live production SaaS platform used by 130+ employees.",
+          summary: "Data-driven B.Tech Computer Science (AI & ML) graduate (2026, CGPA 8.23) with hands-on experience turning operational database records into reports, dashboards, and architectural decisions on an enterprise production SaaS platform.",
           strengths: [
             "Data Analysis & Statistics: SQL, Data Modeling, Database Design, Regression Analysis, Predictive Modeling.",
             "Performance Engineering: Resolved critical N+1 query issue via bulk role-map refactor.",
@@ -41,7 +41,7 @@ export const ResumeModal = ({ isOpen, onClose, initialLens = 'engineer' }) => {
       default:
         return {
           title: "Python Full-Stack & AI Systems Engineer Resume",
-          summary: "B.Tech CS (AI & ML) graduate (2026), CGPA 8.23, with hands-on experience building a live, production multi-tenant HRMS/ERP SaaS used by 130+ employees. Delivered core Django/React modules, leave management, notification systems, and an AI-driven theme engine.",
+          summary: "B.Tech CS (AI & ML) graduate (2026), CGPA 8.23, with hands-on experience building an enterprise multi-tenant HRMS/ERP SaaS platform. Delivered core Django/React modules, leave management, notification systems, and an AI-driven theme engine.",
           strengths: [
             "Five-Layer Multi-Tenancy: TenantScopedModel, TenantManager, JWT auth, HRRouter multi-DB routing, and CompanyMiddleware.",
             "Immutable Ledger Pattern: Built leave management microservice with double-entry auditable ledger pattern.",

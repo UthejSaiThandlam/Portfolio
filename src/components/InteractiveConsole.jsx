@@ -19,7 +19,7 @@ export const InteractiveConsole = () => {
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
           <div className="space-y-1.5">
             <span className="text-[11px] font-mono uppercase tracking-[0.14em] text-cyan-400 font-bold block">
-              Z.APPS PRODUCTION ARCHITECTURE
+              ENTERPRISE PRODUCTION ARCHITECTURE
             </span>
             <h2 className="text-2xl sm:text-3xl font-bold font-heading text-white tracking-tight">
               Interactive System Architecture & Code Console
@@ -43,7 +43,7 @@ export const InteractiveConsole = () => {
               <span className="w-3 h-3 rounded-full bg-rose-500/80 inline-block" />
               <span className="w-3 h-3 rounded-full bg-amber-500/80 inline-block" />
               <span className="w-3 h-3 rounded-full bg-emerald-500/80 inline-block" />
-              <span className="text-xs font-mono text-slate-400 ml-2">zapps_core://architecture.spec</span>
+              <span className="text-xs font-mono text-slate-400 ml-2">core_system://architecture.spec</span>
             </div>
 
             {/* Interactive Tabs */}
@@ -114,7 +114,7 @@ export const InteractiveConsole = () => {
                 </div>
 
                 <div className="p-3 rounded bg-[#0A101D] border border-white/[0.06] text-xs text-emerald-400 flex items-center justify-between">
-                  <span>Status: 100% data isolation verified across all 130+ daily active employees.</span>
+                  <span>Status: 100% data isolation verified across multi-tenant boundaries.</span>
                   <span className="text-slate-400 text-[11px]">Audit: Static Tooling Passed</span>
                 </div>
               </div>
@@ -125,12 +125,12 @@ export const InteractiveConsole = () => {
               <div className="space-y-4">
                 <div className="flex items-center gap-2 text-cyan-400 text-xs">
                   <span>$</span>
-                  <span className="text-white">run org_tree_builder.py --benchmark --nodes 130</span>
+                  <span className="text-white">run org_tree_builder.py --benchmark --nodes 500</span>
                 </div>
 
                 <div className="p-4 rounded-xl bg-[#0E172A] border border-white/[0.08] space-y-2">
                   <div className="text-text-muted">// Single-pass linear tree construction with cycle detection</div>
-                  <div className="text-white">Input: 130 employee profiles with multi-root department directors</div>
+                  <div className="text-white">Input: 500 corporate hierarchy nodes with multi-root department directors</div>
                   <div className="text-emerald-400 font-bold">Time Taken: 1.42ms &bull; Memory Allocation: O(n) &bull; Cycles Detected: 0</div>
                   <div className="text-slate-300 font-sans text-xs">
                     Replaced recursive database CTE calls with a single dictionary map index, guaranteeing instantaneous UI rendering on company directory pages.

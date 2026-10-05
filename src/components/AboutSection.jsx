@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { personalInfo, educationData } from '../data/portfolioData';
-import { GraduationCap, Briefcase, Award, Phone, Mail, MapPin, Copy, Check, ArrowRight } from 'lucide-react';
+import { personalInfo } from '../data/portfolioData';
+import { GraduationCap, Briefcase, Award, Copy, Check } from 'lucide-react';
 
 export const AboutSection = () => {
   const [copiedType, setCopiedType] = useState(null);
@@ -25,32 +25,32 @@ export const AboutSection = () => {
           </div>
 
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold font-heading text-white tracking-tight leading-snug">
-            Product-minded engineer bridging backend scale, applied AI, and user outcomes.
+            Product-minded engineer bridging backend architecture, applied AI, and user outcomes.
           </h2>
 
           <p className="text-sm sm:text-base text-slate-300 font-sans leading-relaxed">
-            I am a final-year Computer Science undergraduate specializing in Artificial Intelligence & Machine Learning (B.Tech 2026, CGPA 8.23). Rather than writing isolated academic scripts, I spent 6 months at <strong className="text-white">Z.APPS</strong> building and shipping a live enterprise multi-tenant HRMS/ERP platform actively used by <strong className="text-accent-coral font-semibold">130+ daily corporate employees</strong>.
+            I am a final-year Computer Science undergraduate specializing in Artificial Intelligence & Machine Learning (B.Tech 2026, CGPA 8.23). I build production-ready software systems combining robust multi-tenant backends, Groq LLM integrations, and modern full-stack engineering.
           </p>
         </div>
 
         {/* 3 Pillar Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           
-          {/* Card 1: Production Experience */}
+          {/* Card 1: Technical & Systems Ownership */}
           <div className="spec-card p-6 space-y-4 flex flex-col justify-between">
             <div className="space-y-3">
               <div className="w-10 h-10 rounded-xl bg-accent-coral/10 border border-accent-coral/30 flex items-center justify-center text-accent-coral">
                 <Briefcase className="w-5 h-5" />
               </div>
               <h3 className="text-lg font-bold font-heading text-white">
-                Z.APPS Full-Stack Ownership
+                Full-Stack Systems Ownership
               </h3>
               <p className="text-xs text-slate-400 leading-relaxed font-sans">
-                Shipped live SaaS modules to 130+ users. Architected 5-layer multi-tenancy, built an O(n) org chart with cycle detection, and refactored N+1 query bottlenecks.
+                Architected 5-layer multi-tenancy, built an O(n) org chart tree builder with cycle detection, and refactored critical N+1 query bottlenecks.
               </p>
             </div>
             <div className="pt-3 border-t border-white/[0.08] text-[11px] font-mono text-accent-coral font-semibold">
-              6-Month Production Internship
+              Production Architecture & Backend Scale
             </div>
           </div>
 

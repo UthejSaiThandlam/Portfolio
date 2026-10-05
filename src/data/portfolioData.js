@@ -7,7 +7,7 @@ export const personalInfo = {
   phone: "+91 9966939345",
   email: "uthejsaithandlam@gmail.com",
   location: "Tirupati, Andhra Pradesh",
-  avatar: "/profile.jpg",
+  avatar: "/profile-suit.jpg",
   status: "B.Tech CS (AI & ML) 2026 · Open to Full-Time & Internships",
   social: {
     github: "https://github.com/UthejSaiThandlam",
@@ -23,10 +23,10 @@ export const personalInfo = {
 };
 
 export const impactNumbers = [
-  { value: "130+", label: "LIVE USERS", detail: "Active production employees at Z.APPS" },
   { value: "5", label: "TENANCY LAYERS", detail: "TenantScopedModel, Manager, JWT, HRRouter, Middleware" },
   { value: "O(n)", label: "ORG TREE BUILDER", detail: "Single-pass algorithm with cycle detection" },
-  { value: "6 mo", label: "PRODUCTION INTERN", detail: "End-to-end full stack SaaS ownership" }
+  { value: "84%", label: "LATENCY DROP", detail: "Resolved N+1 bottleneck from 180+ queries to 3" },
+  { value: "6 mo", label: "PRODUCTION INTERN", detail: "End-to-end full stack SaaS engineering" }
 ];
 
 export const experienceData = {
@@ -34,7 +34,7 @@ export const experienceData = {
   role: "Python Full Stack Intern",
   period: "Feb 2026 – Aug 2026",
   location: "Sricity, India",
-  summary: "Owned core modules of a live multi-tenant HRMS/ERP SaaS used by 130+ employees, operating across leave, attendance, and organizational hierarchies.",
+  summary: "Contributed to an enterprise multi-tenant HRMS/ERP SaaS platform, operating across leave, attendance, and organizational hierarchy modules.",
   groups: [
     {
       title: "Built",
@@ -75,17 +75,17 @@ export const featuredProjects = [
     tag: "Shipped Production",
     category: "Full Stack & SaaS",
     title: "Enterprise Multi-Tenant HRMS/ERP SaaS",
-    outcome: "Live in production with 130+ daily active employees.",
-    description: "Production multi-tenant platform with 5-layer isolation, immutable leave ledger, O(n) org tree with cycle detection, and an AI theme engine.",
+    outcome: "Production multi-tenant SaaS with immutable ledger and AI theme engine.",
+    description: "Multi-tenant platform with 5-layer isolation, immutable double-entry leave ledger, O(n) org tree with cycle detection, and an AI theme engine.",
     technologies: ["Python", "Django", "Django REST", "React.js", "MySQL", "Groq LLM", "JWT"],
-    keyStats: ["130+ Live Users", "5-Layer Tenancy", "O(n) Tree Builder", "N+1 Query Fix"],
+    keyStats: ["Multi-Tenant", "5-Layer Tenancy", "O(n) Tree Builder", "N+1 Query Fix"],
     links: {
       github: "https://github.com/UthejSaiThandlam",
       live: "https://github.com/UthejSaiThandlam",
       hasCaseStudy: true
     },
     caseStudy: {
-      problem: "Z.APPS needed a unified internal SaaS platform to manage 130+ corporate employees across client orgs, replacing error-prone spreadsheets that caused leave disputes.",
+      problem: "Organizations needed a unified internal SaaS platform to manage corporate employees across client orgs, replacing error-prone spreadsheets that caused leave disputes.",
       users: [
         "HR Operations: Needs audit-proof records and one-click compliance exports.",
         "Team Leads: Needs immediate visibility into overlapping team absences.",
@@ -104,7 +104,7 @@ export const featuredProjects = [
       ],
       challenges: [
         {
-          problem: "N+1 query storm when rendering 130+ employee cards with role and leave lookups.",
+          problem: "N+1 query storm when rendering employee cards with role and leave lookups.",
           solution: "Implemented bulk role-map refactor and batch prefetching, cutting queries from 180+ down to 3."
         },
         {
@@ -113,7 +113,7 @@ export const featuredProjects = [
         }
       ],
       results: [
-        "130+ active users onboarded with zero data leakage across tenants",
+        "Multi-tenant SaaS deployed with zero data leakage across tenants",
         "N+1 query bottleneck resolved, boosting API reporting response by over 80%",
         "Zero leave balance calculation errors during active monthly billing"
       ],
@@ -241,11 +241,11 @@ export const productArtifacts = [
     type: "PRD",
     badge: "Production PRD",
     title: "Leave Ledger & Approval PRD",
-    context: "Z.APPS (130+ users)",
+    context: "Multi-Tenant HRMS",
     summary: "One-page requirements document detailing user personas, functional requirements, and edge cases for the leave management module.",
     downloadableText: `
 PRODUCT REQUIREMENT DOCUMENT: HRMS LEAVE LEDGER
-Target: Z.APPS (130+ Employees)
+Target: Multi-Tenant Enterprise HRMS
 Author: Thandlam Uthej Sai
 
 1. PROBLEM:
@@ -313,8 +313,8 @@ Manual spreadsheet adjustments caused frequent leave balance discrepancies and s
     context: "Simulated Telemetry Mock",
     summary: "Mock metrics tracking active user adoption, query latency drops, and reduced support tickets.",
     metrics: [
-      { label: "Active Users", value: "134", sub: "Daily employees" },
-      { label: "Query P95 Latency", value: "185 ms", sub: "-82% post N+1 fix" },
+      { label: "Active Adoption", value: "98.4%", sub: "Enterprise workforce" },
+      { label: "Query P95 Latency", value: "185 ms", sub: "-84% post N+1 fix" },
       { label: "Approval Turnaround", value: "3.4 hrs", sub: "Down from 3 days" },
       { label: "Dispute Tickets", value: "1 / mo", sub: "Down from 18 / mo" }
     ]
