@@ -46,8 +46,8 @@ export const InteractiveConsole = () => {
               <span className="text-xs font-mono text-slate-400 ml-2">core_system://architecture.spec</span>
             </div>
 
-            {/* Interactive Tabs */}
-            <div className="flex flex-wrap items-center gap-1">
+            {/* Interactive Tabs with Responsive Mobile Scroll */}
+            <div className="flex items-center gap-1.5 overflow-x-auto max-w-full pb-0.5 sm:pb-0 scrollbar-none">
               {tabs.map((tab) => {
                 const Icon = tab.icon;
                 const isActive = activeTab === tab.id;
@@ -55,13 +55,13 @@ export const InteractiveConsole = () => {
                   <button
                     key={tab.id}
                     onClick={() => setActiveTab(tab.id)}
-                    className={`flex items-center gap-1.5 px-3 py-1 rounded text-xs font-mono transition-colors ${
+                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono transition-all duration-200 whitespace-nowrap ${
                       isActive
-                        ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 font-semibold'
-                        : 'text-slate-400 hover:text-white hover:bg-white/[0.04]'
+                        ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 font-semibold shadow-sm'
+                        : 'text-slate-400 hover:text-white hover:bg-white/[0.04] border border-transparent'
                     }`}
                   >
-                    <Icon className="w-3 h-3" />
+                    <Icon className="w-3.5 h-3.5" />
                     <span>{tab.label}</span>
                   </button>
                 );

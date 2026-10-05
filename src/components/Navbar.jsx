@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, FileDown } from 'lucide-react';
+import { Menu, X, FileDown, Mail } from 'lucide-react';
 import { Github, Linkedin } from './Icons';
 import { useRole } from '../context/RoleContext';
 import { personalInfo } from '../data/portfolioData';
@@ -80,7 +80,7 @@ export const Navbar = ({ onOpenResumeModal }) => {
               <span>My resume</span>
             </button>
 
-            {/* Social Icons */}
+            {/* Social Icons & Email */}
             <div className="flex items-center gap-1 pl-1">
               <a
                 href={personalInfo.social.github}
@@ -99,6 +99,13 @@ export const Navbar = ({ onOpenResumeModal }) => {
                 title="LinkedIn"
               >
                 <Linkedin className="w-4 h-4" />
+              </a>
+              <a
+                href={`mailto:${personalInfo.email}`}
+                className="p-1.5 text-slate-400 hover:text-accent-coral transition-colors"
+                title="Email uthejsaithandlam@gmail.com"
+              >
+                <Mail className="w-4 h-4" />
               </a>
             </div>
 
@@ -159,6 +166,24 @@ export const Navbar = ({ onOpenResumeModal }) => {
                 {link.name}
               </a>
             ))}
+          </div>
+
+          {/* Mobile Direct Contact Bar */}
+          <div className="pt-2 border-t border-white/[0.08] flex items-center justify-between text-xs font-mono">
+            <a
+              href={`mailto:${personalInfo.email}`}
+              className="flex items-center gap-1.5 text-accent-coral hover:underline"
+            >
+              <Mail className="w-3.5 h-3.5" />
+              <span>Email</span>
+            </a>
+            <span className="text-slate-600">&bull;</span>
+            <a
+              href={`tel:${personalInfo.phone}`}
+              className="text-slate-300 hover:text-white"
+            >
+              {personalInfo.phone}
+            </a>
           </div>
         </div>
       )}

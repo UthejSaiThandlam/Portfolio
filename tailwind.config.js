@@ -42,8 +42,28 @@ export default {
       maxWidth: {
         'content': '1180px',
       },
+      screens: {
+        'xs': '380px',
+      },
       animation: {
         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'float-slow': 'float 5s ease-in-out infinite',
+        'float-reverse': 'floatReverse 6s ease-in-out infinite',
+        'glow-pulse': 'glowPulse 4s ease-in-out infinite',
+      },
+      keyframes: {
+        float: {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-8px)' },
+        },
+        floatReverse: {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(8px)' },
+        },
+        glowPulse: {
+          '0%, 100%': { opacity: '0.8', transform: 'scale(1)' },
+          '50%': { opacity: '1', transform: 'scale(1.02)' },
+        }
       }
     },
   },
