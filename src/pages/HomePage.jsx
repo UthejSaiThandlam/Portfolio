@@ -59,12 +59,12 @@ export const HomePage = ({ onOpenResumeModal }) => {
             <ImpactStrip />
             <AboutSection />
             <ProjectsSection />
+            <SkillsSection />
             <ExperienceSection />
             <InteractiveConsole />
-            <ProductWorkSection />
-            <SkillsSection />
-            <HowIWork />
             <EducationSection />
+            <ProductWorkSection />
+            <HowIWork />
             <ContactSection onOpenResumeModal={onOpenResumeModal} />
           </>
         );

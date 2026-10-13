@@ -14,6 +14,13 @@ import { useRole } from '../context/RoleContext';
 export const Hero = ({ onOpenResumeModal }) => {
   const { activeLens } = useRole();
   const [copiedType, setCopiedType] = useState(null);
+  const [greeting] = useState(() => {
+    if (typeof window === 'undefined') return "Hello";
+    const hour = new Date().getHours();
+    if (hour < 12) return "Good morning!";
+    if (hour < 18) return "Good afternoon!";
+    return "Good evening!";
+  });
 
   const copyToClipboard = (text, type) => {
     navigator.clipboard.writeText(text);
@@ -29,7 +36,7 @@ export const Hero = ({ onOpenResumeModal }) => {
         return 'Data & Telemetry Engineer';
       case 'engineer':
       default:
-        return 'Software Developer';
+        return 'Backend & AI/ML Engineer';
     }
   };
 
@@ -38,51 +45,49 @@ export const Hero = ({ onOpenResumeModal }) => {
       case 'product':
         return 'Product-minded builder focused on 0→1 software delivery, clear product specifications, and user-centric features.';
       case 'analyst':
-        return 'Data-driven problem solver with hands-on experience turning operational database records into Recharts dashboards, N+1 query tuning, and predictive ML ensembles.';
+        return 'Data-driven problem solver with hands-on experience turning operational database records into reports, N+1 query tuning, and predictive ML ensembles.';
       case 'engineer':
       default:
-        return 'B.Tech CS (AI & ML) 2026 graduate. Building production-ready software systems with Python, Django, React, and Groq/RAG integrations.';
+        return 'B.Tech CSE (AI & ML) 2026 graduate. Builds Django REST backends and LLM-powered systems and ships them live. Delivered multi-tenant SaaS for 130+ employees, live RAG application, and 98% accuracy stacked ML ensembles.';
     }
   };
 
   const bottomTechList = [
-    "Python", "Django", "React.js", "MySQL", "Groq LLM", "LangChain RAG", "Docker", "Git", "REST APIs"
+    "Python", "Django", "Django REST", "React.js", "RAG Pipelines", "Google Gemini", "Groq Llama 3.3", "MySQL", "Scikit-Learn", "REST APIs"
   ];
 
   return (
-    <section className="relative pt-12 pb-16 md:pt-20 md:pb-24 overflow-hidden">
+    <section className="relative pt-10 pb-16 md:pt-16 md:pb-24 overflow-hidden">
       
-      {/* Background radial glow behind the halo */}
+      {/* Background radial glow */}
       <div className="absolute top-1/3 right-10 sm:right-20 w-[450px] h-[450px] bg-accent-coral/10 blur-[120px] pointer-events-none rounded-full" />
       <div className="absolute top-1/4 left-10 w-[350px] h-[350px] bg-sky-500/5 blur-[120px] pointer-events-none rounded-full" />
 
-      <div className="max-w-content mx-auto px-4 sm:px-6 relative z-10 space-y-16">
+      <div className="max-w-content mx-auto px-4 sm:px-6 relative z-10 space-y-14">
         
-        {/* Main Hero Row (Matching Jensen Omega layout with Precision Symmetry) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-10 items-center">
+        {/* Main Hero Row */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           
-          {/* Left Side: Typography & Buttons (7 cols) */}
+          {/* Left Side: Typography & Actions (7 cols) */}
           <div className="lg:col-span-7 space-y-6 text-left">
             
-            {/* 1. "Hello." with coral dot */}
-            <div className="flex items-baseline">
-              <span className="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-heading text-white tracking-tight">
-                Hello
-              </span>
-              <span className="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-heading text-accent-coral ml-1">
-                .
-              </span>
+            {/* Dynamic Greeting Badge (Image 3 Style: "Good morning! I'm Uthej, and I work as a Software Engineer.") */}
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-xs font-mono text-indigo-400">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              <span>{greeting}</span>
+              <span className="text-slate-500">&bull;</span>
+              <span className="text-slate-300">Bengaluru & Tirupati</span>
             </div>
 
-            {/* 2. Coral Horizontal Line + "I'm Thandlam Uthej Sai" */}
+            {/* Coral Horizontal Line + Name */}
             <div className="flex items-center gap-3.5">
-              <span className="w-12 sm:w-16 h-[2.5px] bg-accent-coral inline-block rounded-full"></span>
+              <span className="w-12 sm:w-16 h-[2.5px] bg-[#f5a285] inline-block rounded-full"></span>
               <span className="text-xl sm:text-2xl lg:text-3xl font-bold font-heading text-white tracking-tight">
                 I'm {personalInfo.name}
               </span>
             </div>
 
-            {/* 3. Big Bold Title (Software Developer / Lens Title) */}
+            {/* Big Bold Title */}
             <div className="space-y-3">
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-heading text-white tracking-tight leading-[1.15]">
                 {getLensTitle()}
@@ -93,12 +98,12 @@ export const Hero = ({ onOpenResumeModal }) => {
               </p>
             </div>
 
-            {/* 4. Contact Strip (Phone + Email with 1-click copy) */}
+            {/* Contact Strip (Phone + Email with 1-click copy) */}
             <div className="flex flex-wrap items-center gap-2.5 pt-1 text-xs font-mono">
               {/* Phone */}
-              <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#141B2D] border border-white/[0.08] hover:border-accent-coral/40 transition-colors">
-                <a href={`tel:${personalInfo.phone}`} className="text-slate-200 hover:text-accent-coral flex items-center gap-1.5">
-                  <Phone className="w-3.5 h-3.5 text-accent-coral" />
+              <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#141B2D] border border-white/[0.08] hover:border-[#f5a285]/40 transition-colors">
+                <a href={`tel:${personalInfo.phone}`} className="text-slate-200 hover:text-[#f5a285] flex items-center gap-1.5">
+                  <Phone className="w-3.5 h-3.5 text-[#f5a285]" />
                   <span>{personalInfo.phone}</span>
                 </a>
                 <button
@@ -111,8 +116,8 @@ export const Hero = ({ onOpenResumeModal }) => {
               </div>
 
               {/* Email */}
-              <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#141B2D] border border-white/[0.08] hover:border-accent-coral/40 transition-colors">
-                <a href={`mailto:${personalInfo.email}`} className="text-slate-200 hover:text-accent-coral flex items-center gap-1.5 truncate max-w-[210px]">
+              <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#141B2D] border border-white/[0.08] hover:border-[#f5a285]/40 transition-colors">
+                <a href={`mailto:${personalInfo.email}`} className="text-slate-200 hover:text-[#f5a285] flex items-center gap-1.5 truncate max-w-[210px]">
                   <Mail className="w-3.5 h-3.5 text-sky-400" />
                   <span className="truncate">{personalInfo.email}</span>
                 </a>
@@ -127,76 +132,75 @@ export const Hero = ({ onOpenResumeModal }) => {
 
               {/* Location */}
               <div className="flex items-center gap-1.5 text-slate-400 px-2 py-1">
-                <MapPin className="w-3.5 h-3.5 text-accent-coral" />
+                <MapPin className="w-3.5 h-3.5 text-[#f5a285]" />
                 <span>{personalInfo.location}</span>
               </div>
             </div>
 
-            {/* 5. Two Action Buttons (Exact Jensen Omega Style with Enhanced Transitions) */}
+            {/* Action Buttons */}
             <div className="flex flex-wrap items-center gap-3.5 pt-2">
-              
-              {/* Solid Coral Button: "View Projects" */}
               <a
                 href="#projects"
-                className="btn-primary-coral px-6 py-3 text-xs sm:text-sm inline-flex items-center gap-2"
+                className="px-6 py-3 rounded-xl bg-[#f5a285] hover:bg-[#ffb399] text-slate-950 font-bold text-xs sm:text-sm font-heading shadow-md shadow-[#f5a285]/20 inline-flex items-center gap-2 transition-all hover:scale-[1.02] active:scale-100"
               >
                 <span>View Projects</span>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 stroke-[2.5]" />
               </a>
 
-              {/* Outlined Button: "My resume" */}
               <button
                 onClick={() => onOpenResumeModal(activeLens)}
-                className="btn-secondary-outline px-6 py-3 text-xs sm:text-sm inline-flex items-center gap-2"
+                className="px-6 py-3 rounded-xl bg-white/[0.06] hover:bg-white/[0.1] text-white border border-white/[0.12] hover:border-white/30 text-xs sm:text-sm font-mono font-semibold inline-flex items-center gap-2 transition-all"
               >
-                <FileText className="w-4 h-4 text-accent-coral" />
-                <span>My resume ({activeLens})</span>
+                <FileText className="w-4 h-4 text-[#f5a285]" />
+                <span>My Resume ({activeLens})</span>
               </button>
-
             </div>
 
           </div>
 
-          {/* Right Side: Portrait inside Glowing Circular Halo + Symmetrical Floating Chevrons (5 cols) */}
-          <div className="lg:col-span-5 flex justify-center items-center relative py-6">
+          {/* Right Side: Trio Photo Collage (Replicating Image 3 Header Collage) */}
+          <div className="lg:col-span-5 flex justify-center items-center relative py-4">
             
-            {/* Symmetrical Relative Halo Wrapper */}
-            <div className="relative inline-flex items-center justify-center">
-
-              {/* Left Floating Chevron */}
-              <div className="absolute -left-7 sm:-left-10 top-1/2 -translate-y-1/2 pointer-events-none opacity-85 animate-float-slow">
-                <svg width="34" height="34" viewBox="0 0 36 36" fill="none" className="w-7 h-7 sm:w-9 sm:h-9">
-                  <path d="M25 7 L9 18 L25 29" stroke="#FF6551" strokeWidth="2.75" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
+            <div className="relative flex items-center justify-center">
+              
+              {/* Photo 1 (Tilted Left: Street / Hoodie) */}
+              <div className="w-28 sm:w-34 h-40 sm:h-46 rounded-2xl overflow-hidden bg-slate-900 border-2 border-white/20 shadow-2xl transform -rotate-12 -mr-6 hover:rotate-0 hover:z-30 transition-all duration-300 group/p1">
+                <img
+                  src="/uthej-black-hoodie.jpg"
+                  alt="Uthej Street Style"
+                  className="w-full h-full object-cover object-center filter contrast-105 group-hover/p1:scale-110 transition-transform duration-300"
+                />
               </div>
 
-              {/* Right Floating Chevron */}
-              <div className="absolute -right-7 sm:-right-10 top-1/2 -translate-y-1/2 pointer-events-none opacity-85 animate-float-reverse">
-                <svg width="34" height="34" viewBox="0 0 36 36" fill="none" className="w-7 h-7 sm:w-9 sm:h-9">
-                  <path d="M11 7 L27 18 L11 29" stroke="#FF6551" strokeWidth="2.75" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
+              {/* Photo 2 (Center - Prominent: Red Shirt Portrait) */}
+              <div className="relative z-20 w-38 sm:w-46 h-54 sm:h-60 rounded-2xl overflow-hidden bg-slate-900 border-2 border-[#f5a285] shadow-2xl shadow-[#f5a285]/20 hover:scale-105 transition-all duration-300 group/p2">
+                <img
+                  src="/uthej-red-shirt.jpg"
+                  alt={personalInfo.name}
+                  className="w-full h-full object-cover object-top filter brightness-105 group-hover/p2:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute bottom-2 left-2 right-2 bg-slate-950/85 backdrop-blur-md px-2.5 py-1.5 rounded-lg border border-white/10 text-center">
+                  <span className="text-[10px] font-mono font-bold text-white block truncate">
+                    B.Tech CSE '26 · CGPA 8.23
+                  </span>
+                </div>
               </div>
 
-              {/* Glowing Coral Concentric Halo Frame */}
-              <div className="relative w-60 h-60 xs:w-68 xs:h-68 sm:w-76 sm:h-76 md:w-80 md:h-80 rounded-full coral-halo-frame coral-ring-border flex items-center justify-center p-2.5">
-                
-                {/* Profile Photo in Suit */}
-                <div className="w-full h-full rounded-full overflow-hidden bg-[#111625] relative">
-                  <img
-                    src={personalInfo.avatar}
-                    alt={personalInfo.name}
-                    className="w-full h-full object-cover object-top scale-105 filter brightness-105"
-                  />
-                </div>
+              {/* Photo 3 (Tilted Right: White Shirt Portrait) */}
+              <div className="w-28 sm:w-34 h-40 sm:h-46 rounded-2xl overflow-hidden bg-slate-900 border-2 border-white/20 shadow-2xl transform rotate-12 -ml-6 hover:rotate-0 hover:z-30 transition-all duration-300 group/p3">
+                <img
+                  src="/uthej-white-shirt.jpg"
+                  alt="Uthej Engineer Outdoors"
+                  className="w-full h-full object-cover object-center filter contrast-105 group-hover/p3:scale-110 transition-transform duration-300"
+                />
+              </div>
 
-                {/* Floating Verified Badge - Centered */}
-                <div className="absolute -bottom-3.5 left-1/2 -translate-x-1/2 bg-[#0B0F19]/95 backdrop-blur-md border border-accent-coral/60 px-3.5 py-1 rounded-full text-[11px] font-mono text-white flex items-center gap-2 shadow-2xl whitespace-nowrap">
-                  <span className="w-2 h-2 rounded-full bg-accent-coral animate-ping" />
-                  <span className="font-semibold">Full-Stack & AI Builder</span>
-                  <span className="text-slate-500">&bull;</span>
-                  <span className="text-slate-300">B.Tech 2026</span>
-                </div>
-
+              {/* Floating Verified Badge */}
+              <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 z-30 bg-[#0B0F19]/95 backdrop-blur-md border border-[#f5a285]/60 px-4 py-1.5 rounded-full text-[11px] font-mono text-white flex items-center gap-2 shadow-2xl whitespace-nowrap">
+                <span className="w-2 h-2 rounded-full bg-[#f5a285] animate-ping" />
+                <span className="font-semibold text-white">Full-Stack & AI Builder</span>
+                <span className="text-slate-500">&bull;</span>
+                <span className="text-[#f5a285] font-mono">130+ SaaS Users</span>
               </div>
 
             </div>
@@ -205,13 +209,13 @@ export const Hero = ({ onOpenResumeModal }) => {
 
         </div>
 
-        {/* Bottom Horizontal Tech Ticker (Exact Jensen Omega bottom strip with Symmetric Spacing) */}
-        <div className="pt-8 border-t border-white/[0.08]">
-          <div className="flex flex-wrap items-center justify-between gap-y-3 gap-x-4 text-xs sm:text-sm font-heading font-medium text-slate-400">
+        {/* Bottom Horizontal Tech Strip */}
+        <div className="pt-6 border-t border-white/[0.08]">
+          <div className="flex flex-wrap items-center justify-between gap-y-2.5 gap-x-4 text-xs font-mono font-medium text-slate-400">
             {bottomTechList.map((tech, idx) => (
               <span 
                 key={idx} 
-                className="hover:text-white hover:text-accent-coral transition-colors duration-200 cursor-default px-2 py-1 rounded hover:bg-white/[0.04]"
+                className="hover:text-white hover:text-[#f5a285] transition-colors cursor-default px-2 py-1 rounded hover:bg-white/[0.04]"
               >
                 {tech}
               </span>
@@ -223,3 +227,4 @@ export const Hero = ({ onOpenResumeModal }) => {
     </section>
   );
 };
+

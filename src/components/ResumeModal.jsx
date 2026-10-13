@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { X, Download, FileText, Printer, CheckCircle2, Phone, Mail, MapPin, ExternalLink } from 'lucide-react';
-import { personalInfo, experienceData, educationData } from '../data/portfolioData';
+import { X, Download, FileText, ExternalLink } from 'lucide-react';
+import { personalInfo, experienceData } from '../data/portfolioData';
 
 export const ResumeModal = ({ isOpen, onClose, initialLens = 'engineer' }) => {
   const [selectedLens, setSelectedLens] = useState(initialLens);
@@ -13,143 +13,256 @@ export const ResumeModal = ({ isOpen, onClose, initialLens = 'engineer' }) => {
     analyst: personalInfo.resumeLinks.analyst
   };
 
-  const getResumeHighlights = () => {
+  const getLensTitle = () => {
     switch (selectedLens) {
       case 'product':
-        return {
-          title: "Founding Product Manager / Product Management Resume",
-          summary: "Recent CS (AI & ML) graduate with hands-on experience shipping full-stack products end-to-end. Comfortable with SQL and data-driven decisions, builds fast with AI tools (Groq LLM, RAG), and pairs strong technical fluency with product execution.",
-          strengths: [
-            "0 -> 1 Product Ownership: Shipped production software end-to-end (requirements, UX decisions, build, iteration).",
-            "Data & SQL: SQL-backed reporting logic and interactive Recharts dashboards.",
-            "AI-Native Builder: Groq LLM chatbot, RAG planning assistant, AI-assisted workflows.",
-            "Feature Delivery: Designed and shipped an AI-driven dynamic theme engine for multi-tenant portal customization."
-          ]
-        };
+        return "Founding Product Engineer / PM Resume";
       case 'analyst':
-        return {
-          title: "Data Analyst & Business Telemetry Resume",
-          summary: "Data-driven B.Tech Computer Science (AI & ML) graduate (2026, CGPA 8.23) with hands-on experience turning operational database records into reports, dashboards, and architectural decisions on an enterprise production SaaS platform.",
-          strengths: [
-            "Data Analysis & Statistics: SQL, Data Modeling, Database Design, Regression Analysis, Predictive Modeling.",
-            "Performance Engineering: Resolved critical N+1 query issue via bulk role-map refactor.",
-            "Dashboarding & Visualization: Interactive Recharts dashboards and O(n) org chart hierarchy visualization.",
-            "Database Rigor: Designed and queried multi-tenant relational schemas (MySQL) across five-layer architecture."
-          ]
-        };
+        return "Data Systems & Telemetry Analyst Resume";
       case 'engineer':
       default:
-        return {
-          title: "Python Full-Stack & AI Systems Engineer Resume",
-          summary: "B.Tech CS (AI & ML) graduate (2026), CGPA 8.23, with hands-on experience building an enterprise multi-tenant HRMS/ERP SaaS platform. Delivered core Django/React modules, leave management, notification systems, and an AI-driven theme engine.",
-          strengths: [
-            "Five-Layer Multi-Tenancy: TenantScopedModel, TenantManager, JWT auth, HRRouter multi-DB routing, and CompanyMiddleware.",
-            "Immutable Ledger Pattern: Built leave management microservice with double-entry auditable ledger pattern.",
-            "Algorithmic Problem-Solving: O(n) org tree builder with cycle detection for multi-root hierarchies.",
-            "AI Integration: Groq LLM chatbot with RBAC-scoped audit logging and dual auth paths."
-          ]
-        };
+        return "Backend and AI/ML Engineer Resume";
     }
   };
 
-  const highlights = getResumeHighlights();
-
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 bg-[#0B1020]/80 backdrop-blur-sm overflow-y-auto">
-      <div className="relative w-full max-w-2xl bg-[#121A2F] border border-[#1F2A44] rounded-xl shadow-2xl overflow-hidden my-auto max-h-[90vh] flex flex-col">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 bg-black/80 backdrop-blur-md overflow-y-auto animate-fadeIn">
+      <div className="relative w-full max-w-3xl bg-[#0D1017] border border-white/[0.12] rounded-2xl shadow-2xl overflow-hidden my-auto max-h-[92vh] flex flex-col">
         
         {/* Modal Header */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 sm:p-5 border-b border-[#1F2A44] bg-[#0B1020]/70">
-          <div>
-            <h3 className="font-semibold text-sm sm:text-base text-text-primary font-mono">
-              Resume View & Direct PDF
-            </h3>
-            <p className="text-xs text-text-secondary">
-              Review tailored summary or download the verified PDF.
-            </p>
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 sm:p-5 border-b border-white/[0.08] bg-[#090C12]">
+          <div className="flex items-center gap-2.5">
+            <div className="w-8 h-8 rounded-lg bg-[#f5a285]/20 text-[#f5a285] flex items-center justify-center border border-[#f5a285]/30">
+              <FileText className="w-4 h-4" />
+            </div>
+            <div>
+              <h3 className="font-bold text-sm sm:text-base text-white font-heading">
+                Verified Resume · {personalInfo.name}
+              </h3>
+              <p className="text-xs text-slate-400 font-mono">
+                Updated for SDE, Backend, and AI/ML Engineering
+              </p>
+            </div>
           </div>
 
-          <div className="flex items-center gap-1 bg-[#121A2F] p-1 rounded border border-[#1F2A44]">
-            {['engineer', 'product', 'analyst'].map((lens) => (
-              <button
-                key={lens}
-                onClick={() => setSelectedLens(lens)}
-                className={`px-2.5 py-1 text-xs font-mono rounded capitalize transition-colors ${
-                  selectedLens === lens ? 'bg-accent-blue text-[#0B1020] font-bold' : 'text-text-muted hover:text-text-primary'
-                }`}
-              >
-                {lens}
-              </button>
-            ))}
-          </div>
+          <div className="flex items-center gap-2">
+            <div className="flex items-center bg-[#141822] p-1 rounded-lg border border-white/[0.08]">
+              {['engineer', 'product', 'analyst'].map((lens) => (
+                <button
+                  key={lens}
+                  onClick={() => setSelectedLens(lens)}
+                  className={`px-2.5 py-1 text-xs font-mono rounded capitalize transition-colors ${
+                    selectedLens === lens 
+                      ? 'bg-[#f5a285] text-slate-950 font-bold' 
+                      : 'text-slate-400 hover:text-white'
+                  }`}
+                >
+                  {lens}
+                </button>
+              ))}
+            </div>
 
-          <button
-            onClick={onClose}
-            className="p-1 text-text-muted hover:text-text-primary absolute top-4 right-4 sm:static"
-          >
-            <X className="w-5 h-5" />
-          </button>
+            <button
+              onClick={onClose}
+              className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/[0.06] transition-colors"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
         </div>
 
-        {/* Modal Content */}
-        <div className="overflow-y-auto p-5 sm:p-6 space-y-4 text-xs text-text-secondary leading-relaxed font-sans">
+        {/* Modal Content - Document Layout */}
+        <div className="overflow-y-auto p-5 sm:p-8 space-y-6 text-xs text-slate-300 leading-relaxed font-sans bg-[#0B0E15]">
           
           {/* Header Info */}
-          <div className="border-b border-[#1F2A44] pb-3 space-y-1">
-            <h2 className="text-base font-bold text-text-primary">{personalInfo.name}</h2>
-            <div className="text-xs font-mono text-accent-blue">{highlights.title}</div>
-            <div className="flex flex-wrap items-center gap-3 text-[11px] font-mono text-text-muted pt-1">
-              <span>{personalInfo.phone}</span>
-              <span>&bull;</span>
-              <span>{personalInfo.email}</span>
-              <span>&bull;</span>
+          <div className="border-b border-white/[0.08] pb-4 space-y-1.5 text-center sm:text-left">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+              <h2 className="text-2xl font-extrabold text-white font-heading tracking-tight">
+                {personalInfo.name}
+              </h2>
+              <span className="text-xs font-mono font-semibold px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 self-center sm:self-auto">
+                B.Tech CSE (AI & ML) 2026 · CGPA 8.23
+              </span>
+            </div>
+            <div className="text-xs font-mono text-[#f5a285] font-semibold">
+              {getLensTitle()}
+            </div>
+            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-3 text-[11px] font-mono text-slate-400 pt-1">
               <span>{personalInfo.location}</span>
+              <span>&bull;</span>
+              <a href={`tel:${personalInfo.phone}`} className="hover:text-white">{personalInfo.phone}</a>
+              <span>&bull;</span>
+              <a href={`mailto:${personalInfo.email}`} className="hover:text-white">{personalInfo.email}</a>
+              <span>&bull;</span>
+              <a href={personalInfo.social.github} target="_blank" rel="noreferrer" className="text-sky-400 hover:underline">GitHub</a>
+              <span>&bull;</span>
+              <a href={personalInfo.social.linkedin} target="_blank" rel="noreferrer" className="text-sky-400 hover:underline">LinkedIn</a>
             </div>
           </div>
 
           {/* Professional Summary */}
-          <div className="space-y-1">
-            <span className="text-[11px] font-mono uppercase text-text-muted font-bold block">
+          <div className="space-y-1.5">
+            <div className="text-[11px] font-mono uppercase tracking-wider text-slate-400 font-bold">
               Professional Summary
-            </span>
-            <p className="text-text-primary leading-relaxed">
-              {highlights.summary}
+            </div>
+            <p className="text-slate-200 leading-relaxed text-xs sm:text-[13px] bg-[#12151F] p-3.5 rounded-xl border border-white/[0.06]">
+              {personalInfo.summary}
             </p>
           </div>
 
-          {/* Targeted Strengths */}
-          <div className="space-y-1.5">
-            <span className="text-[11px] font-mono uppercase text-text-muted font-bold block">
-              Key Strengths & Production Evidence
-            </span>
-            <div className="space-y-1.5">
-              {highlights.strengths.map((str, i) => (
-                <div key={i} className="p-2.5 rounded bg-[#0B1020] border border-[#1F2A44] text-[11px] text-text-secondary">
-                  &bull; {str}
-                </div>
-              ))}
+          {/* Technical Skills Section from Resume */}
+          <div className="space-y-2">
+            <div className="text-[11px] font-mono uppercase tracking-wider text-slate-400 font-bold">
+              Technical Skills
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+              <div className="p-2.5 rounded-lg bg-[#12151F] border border-white/[0.04]">
+                <strong className="text-white font-mono block mb-0.5">Languages:</strong>
+                <span className="text-slate-300">Python, Java, SQL, JavaScript</span>
+              </div>
+              <div className="p-2.5 rounded-lg bg-[#12151F] border border-white/[0.04]">
+                <strong className="text-white font-mono block mb-0.5">Backend & APIs:</strong>
+                <span className="text-slate-300">Django, Django REST Framework, REST API Design, Microservices, Multi-Tenant Architecture, JWT, RBAC, Middleware</span>
+              </div>
+              <div className="p-2.5 rounded-lg bg-[#12151F] border border-white/[0.04]">
+                <strong className="text-white font-mono block mb-0.5">AI/ML & LLMs:</strong>
+                <span className="text-slate-300">RAG, Google Gemini, Groq Llama 3.3 70B, Prompt Engineering, Hybrid Search (TF-IDF + BM25), Scikit-Learn, Stacked Ensembles</span>
+              </div>
+              <div className="p-2.5 rounded-lg bg-[#12151F] border border-white/[0.04]">
+                <strong className="text-white font-mono block mb-0.5">Databases & Tools:</strong>
+                <span className="text-slate-300">MySQL, SQLite, Multi-DB Routing, React.js, Git, GitHub, Postman, Render</span>
+              </div>
             </div>
           </div>
 
-          {/* Education & Credentials */}
-          <div className="space-y-1 pt-1 border-t border-[#1F2A44]">
-            <span className="text-[11px] font-mono uppercase text-text-muted font-bold block">
-              Education & Certifications
-            </span>
-            <div className="text-[11px] text-text-primary">
-              B.Tech in CS & Engineering (AI & ML) &bull; Siddharth Institute of Engg. & Tech. (CGPA: 8.23/10)
+          {/* Professional Experience from Resume */}
+          <div className="space-y-3">
+            <div className="text-[11px] font-mono uppercase tracking-wider text-slate-400 font-bold">
+              Professional Experience
             </div>
-            <div className="text-[11px] text-text-muted">
-              Certifications: NPTEL The Joy of Computing Using Python &bull; Python Full Stack Development
+            <div className="p-4 rounded-xl bg-[#12151F] border border-white/[0.06] space-y-3">
+              <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 border-b border-white/[0.06] pb-2">
+                <div>
+                  <h4 className="font-bold text-white text-sm">
+                    {experienceData.role} — <span className="text-[#f5a285]">{experienceData.company}</span>
+                  </h4>
+                  <div className="text-[11px] text-slate-400 font-mono">
+                    {experienceData.location}
+                  </div>
+                </div>
+                <div className="text-xs font-mono text-slate-400">
+                  {experienceData.period}
+                </div>
+              </div>
+
+              <ul className="space-y-2 text-xs text-slate-300">
+                <li className="flex items-start gap-2">
+                  <span className="text-[#f5a285] font-bold">&bull;</span>
+                  <span>Shipped features on a live, production multi-tenant HRMS/ERP SaaS used by <strong className="text-white">130+ employees</strong>, across Django REST backend, MySQL, and React layers.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#f5a285] font-bold">&bull;</span>
+                  <span>Built the leave management microservice end-to-end with an <strong className="text-white">immutable-ledger balance pattern</strong> for traceable balances and automated email notifications.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#f5a285] font-bold">&bull;</span>
+                  <span>Architected a <strong className="text-white">five-layer multi-tenancy system</strong> (TenantScopedModel, TenantManager, JWT-based tenant resolution, HRRouter multi-DB routing, CompanyMiddleware) with audit tooling to enforce tenant data isolation.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#f5a285] font-bold">&bull;</span>
+                  <span>Resolved a critical N+1 query bottleneck via a bulk role-map refactor, reducing redundant calls by <strong className="text-white">80%</strong> and cutting response time by <strong className="text-white">~1 second</strong>.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#f5a285] font-bold">&bull;</span>
+                  <span>Built an AI chatbot using Groq LLM with RBAC-scoped, audit-logged query access; implemented dual authentication paths (JWT for HR/admin, employee-ID based for staff).</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#f5a285] font-bold">&bull;</span>
+                  <span>Developed an AI-powered theme engine that extracts color palettes and style cues from uploaded images and applies them across the portal for per-tenant UI customization.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#f5a285] font-bold">&bull;</span>
+                  <span>Authored API and architecture documentation to support maintainability and team knowledge transfer.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Key Projects from Resume */}
+          <div className="space-y-3">
+            <div className="text-[11px] font-mono uppercase tracking-wider text-slate-400 font-bold">
+              Projects
+            </div>
+            
+            {/* Project 1: AI Planner using RAG */}
+            <div className="p-3.5 rounded-xl bg-[#12151F] border border-white/[0.06] space-y-1.5">
+              <div className="flex items-center justify-between">
+                <h4 className="font-bold text-white text-xs sm:text-sm">
+                  AI Planner using RAG | <span className="font-mono text-xs text-slate-400 font-normal">Python, Google Gemini, Groq, TF-IDF, BM25</span>
+                </h4>
+                <a
+                  href="https://rag-ai-planner-1.onrender.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-xs font-mono font-bold text-[#f5a285] hover:underline inline-flex items-center gap-1"
+                >
+                  <ExternalLink className="w-3 h-3" /> Live Demo
+                </a>
+              </div>
+              <p className="text-xs text-slate-300">
+                Built and deployed live an end-to-end RAG pipeline with document ingestion (PDF, DOCX, TXT, MD), sliding-window chunking (500 chars, 100 overlap), TF-IDF vector index, and cited answers (top-5 chunks with source document and page). Implemented hybrid retrieval fusing 70% semantic similarity and 30% BM25 keyword scores with multi-provider LLM fallback (Gemini 2.5 Flash-Lite &rarr; Gemini 2.5 Flash, Groq Llama 3.3 70B).
+              </p>
+            </div>
+
+            {/* Project 2: Heart Disease Prediction */}
+            <div className="p-3.5 rounded-xl bg-[#12151F] border border-white/[0.06] space-y-1.5">
+              <h4 className="font-bold text-white text-xs sm:text-sm">
+                Heart Disease Prediction — Dual Stacked Ensemble | <span className="font-mono text-xs text-slate-400 font-normal">Python, Scikit-learn, Pandas, NumPy</span>
+              </h4>
+              <p className="text-xs text-slate-300">
+                Designed a dual stacked ensemble of multiple base classifiers reaching 98% accuracy, outperforming single-model baselines, with a preprocessing pipeline for real-time predictions.
+              </p>
+            </div>
+
+            {/* Project 3: Attendance Management System */}
+            <div className="p-3.5 rounded-xl bg-[#12151F] border border-white/[0.06] space-y-1.5">
+              <h4 className="font-bold text-white text-xs sm:text-sm">
+                Attendance Management System | <span className="font-mono text-xs text-slate-400 font-normal">Django, MySQL, Excel, REST APIs</span>
+              </h4>
+              <p className="text-xs text-slate-300">
+                Automated attendance processing, raw-data validation and synchronization into structured attendance records with exportable reports.
+              </p>
+            </div>
+          </div>
+
+          {/* Education & Certifications */}
+          <div className="space-y-2 border-t border-white/[0.08] pt-3">
+            <div className="text-[11px] font-mono uppercase tracking-wider text-slate-400 font-bold">
+              Education & Certifications
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+              <div>
+                <strong className="text-white block">B.Tech in Computer Science & Engineering (AI & ML)</strong>
+                <span className="text-slate-400">Siddharth Institute of Engg. & Tech., Puttur (2026)</span>
+                <div className="text-[#f5a285] font-mono text-[11px]">CGPA: 8.23 / 10.0</div>
+              </div>
+              <div>
+                <strong className="text-white block">Intermediate (MPC)</strong>
+                <span className="text-slate-400">Sri Chaitanya Junior College, Tirupati (2022)</span>
+                <div className="text-slate-400 font-mono text-[11px]">Marks: 787 / 1000</div>
+              </div>
+            </div>
+            <div className="pt-2 text-xs text-slate-400">
+              <strong className="text-slate-300">Certifications:</strong> NPTEL – The Joy of Computing Using Python (IIT Madras) &bull; Python Full Stack Development (Think Champ Pvt Ltd)
             </div>
           </div>
 
         </div>
 
         {/* Modal Footer Actions */}
-        <div className="p-4 border-t border-[#1F2A44] bg-[#0B1020]/80 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <span className="text-xs font-mono text-text-muted">
-            Uploaded Resumes: Exact PDFs
+        <div className="p-4 border-t border-white/[0.08] bg-[#090C12] flex flex-col sm:flex-row items-center justify-between gap-3">
+          <span className="text-xs font-mono text-slate-400">
+            Official PDF Document &bull; Verified 2026 Profile
           </span>
           <div className="flex items-center gap-2 w-full sm:w-auto">
             <a
@@ -157,10 +270,10 @@ export const ResumeModal = ({ isOpen, onClose, initialLens = 'engineer' }) => {
               target="_blank"
               rel="noopener noreferrer"
               download={`Resume-Thandlam-Uthej-Sai-${selectedLens}.pdf`}
-              className="flex-1 sm:flex-none px-4 py-2 rounded-lg bg-accent-blue hover:bg-accent-blue/90 text-[#0B1020] text-xs font-mono font-bold inline-flex items-center justify-center gap-1.5 transition-colors shadow-md shadow-accent-blue/20"
+              className="flex-1 sm:flex-none px-5 py-2.5 rounded-xl bg-[#f5a285] hover:bg-[#ffb399] text-slate-950 text-xs font-heading font-bold inline-flex items-center justify-center gap-2 transition-all shadow-md shadow-[#f5a285]/20 hover:scale-[1.02]"
             >
-              <Download className="w-3.5 h-3.5" />
-              <span>Download Official PDF ({selectedLens})</span>
+              <Download className="w-4 h-4 stroke-[2.5]" />
+              <span>Download Official Resume PDF</span>
             </a>
           </div>
         </div>

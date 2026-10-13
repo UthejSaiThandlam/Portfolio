@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Terminal, Layers, Cpu, Database, CheckCircle, ArrowRight, ShieldCheck, Zap } from 'lucide-react';
+import { Terminal, Layers, Cpu, Zap, Sparkles, ExternalLink } from 'lucide-react';
 
 export const InteractiveConsole = () => {
-  const [activeTab, setActiveTab] = useState('tenancy');
+  const [activeTab, setActiveTab] = useState('rag');
 
   const tabs = [
+    { id: 'rag', label: 'Live RAG Planner', icon: Sparkles },
     { id: 'tenancy', label: '5-Layer Tenancy', icon: Layers },
     { id: 'tree', label: 'O(n) Org Tree Builder', icon: Cpu },
     { id: 'query', label: 'N+1 Query Refactor', icon: Zap },
@@ -73,6 +74,57 @@ export const InteractiveConsole = () => {
           {/* Console Content Display */}
           <div className="p-5 sm:p-6 bg-[#070B14]/90 font-mono text-xs sm:text-sm text-slate-300 space-y-4">
             
+            {/* Tab 0: Live RAG Planner */}
+            {activeTab === 'rag' && (
+              <div className="space-y-4">
+                <div className="flex items-center justify-between text-xs">
+                  <div className="flex items-center gap-2 text-cyan-400">
+                    <span>$</span>
+                    <span className="text-white">curl -X POST https://rag-ai-planner-1.onrender.com/api/query -d '{`{"query": "syllabus milestones", "mode": "hybrid"}`}'</span>
+                  </div>
+                  <a
+                    href="https://rag-ai-planner-1.onrender.com/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-[#f5a285] text-slate-950 font-bold font-mono hover:bg-[#ffb399] transition-all"
+                  >
+                    <ExternalLink className="w-3 h-3" /> Live Demo
+                  </a>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-3 pt-2">
+                  <div className="p-3.5 rounded-lg bg-[#0E172A] border border-purple-500/30 space-y-1">
+                    <span className="text-[10px] text-purple-400 block font-bold">STAGE 1: INGESTION</span>
+                    <div className="text-xs font-bold text-white">Multi-Format Parser</div>
+                    <p className="text-[11px] text-slate-400 font-sans">Sliding window chunking (500 chars, 100 overlap) across PDF, DOCX, TXT, MD.</p>
+                  </div>
+
+                  <div className="p-3.5 rounded-lg bg-[#0E172A] border border-cyan-500/30 space-y-1">
+                    <span className="text-[10px] text-cyan-400 block font-bold">STAGE 2: VECTOR INDEX</span>
+                    <div className="text-xs font-bold text-white">TF-IDF + Inverted Index</div>
+                    <p className="text-[11px] text-slate-400 font-sans">Document vectors + frequency index for sub-millisecond sparse lookup.</p>
+                  </div>
+
+                  <div className="p-3.5 rounded-lg bg-[#0E172A] border border-emerald-500/30 space-y-1">
+                    <span className="text-[10px] text-emerald-400 block font-bold">STAGE 3: HYBRID FUSION</span>
+                    <div className="text-xs font-bold text-white">70% Semantic + 30% BM25</div>
+                    <p className="text-[11px] text-slate-400 font-sans">Linear rank fusion balancing concept proximity with strict terminology recall.</p>
+                  </div>
+
+                  <div className="p-3.5 rounded-lg bg-[#0E172A] border border-amber-500/30 space-y-1">
+                    <span className="text-[10px] text-amber-400 block font-bold">STAGE 4: LLM FALLBACK</span>
+                    <div className="text-xs font-bold text-white">Gemini &rarr; Groq Llama 3.3</div>
+                    <p className="text-[11px] text-slate-400 font-sans">Automatic provider rollover ensuring 99.9% uptime and citations (top-5 chunks).</p>
+                  </div>
+                </div>
+
+                <div className="p-3 rounded bg-[#0A101D] border border-white/[0.06] text-xs text-emerald-400 flex flex-wrap items-center justify-between gap-2">
+                  <span>Pipeline Live: Deployed on Render with Cited Answers &amp; Vector Search endpoints.</span>
+                  <span className="text-[#f5a285] font-mono text-[11px]">rag-ai-planner-1.onrender.com</span>
+                </div>
+              </div>
+            )}
+
             {/* Tab 1: 5-Layer Tenancy */}
             {activeTab === 'tenancy' && (
               <div className="space-y-4">

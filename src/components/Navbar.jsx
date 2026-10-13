@@ -19,8 +19,9 @@ export const Navbar = ({ onOpenResumeModal }) => {
     { name: 'Home', href: '/#' },
     { name: 'About', href: '/#about' },
     { name: 'Projects', href: '/#projects' },
+    { name: 'Skills', href: '/#skills' },
+    { name: 'Education', href: '/#education' },
     { name: 'Experience', href: '/#experience' },
-    { name: 'Artifacts', href: '/#artifacts' },
     { name: 'Contacts', href: '/#contact' }
   ];
 
