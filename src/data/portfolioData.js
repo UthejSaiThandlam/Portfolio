@@ -7,13 +7,13 @@ export const personalInfo = {
   phone: "+91 9966939345",
   email: "uthejsaithandlam@gmail.com",
   location: "Bengaluru, Karnataka",
-  avatar: "/uthej-red-shirt.jpg",
+  avatar: "/profile-suit.jpg",
   photos: {
+    suit: "/profile-suit.jpg",
     portraitRed: "/uthej-red-shirt.jpg",
     outdoorsWhite: "/uthej-white-shirt.jpg",
     sunsetBeach: "/uthej-beach-sunset.png",
-    streetHoodie: "/uthej-black-hoodie.jpg",
-    suit: "/profile-suit.jpg"
+    streetHoodie: "/uthej-black-hoodie.jpg"
   },
   status: "B.Tech CSE (AI & ML) 2026 (CGPA 8.23) · Open to Full-Time & SDE/AI Roles",
   summary: "Backend and AI/ML engineer, B.Tech CSE (AI & ML) graduate (2026, CGPA 8.23), who builds Django REST backends and LLM-powered systems and ships them live. Delivered a multi-tenant HRMS/ERP SaaS used by 130+ employees (JWT, RBAC, query optimization, 80% fewer redundant calls) and a live RAG application with hybrid retrieval (TF-IDF + BM25) and multi-provider LLM fallback (Gemini, Groq). Built a stacked ensemble reaching 98% accuracy.",
@@ -31,10 +31,27 @@ export const personalInfo = {
 };
 
 export const impactNumbers = [
-  { value: "130+", label: "ACTIVE EMPLOYEES", detail: "Shipped features on live production multi-tenant HRMS/ERP SaaS" },
-  { value: "80%", label: "FEWER REDUNDANT CALLS", detail: "Resolved N+1 bottleneck via bulk role-map refactor; ~1s faster" },
-  { value: "70/30", label: "HYBRID RETRIEVAL", detail: "70% semantic similarity + 30% BM25 keyword score fusion in RAG" },
-  { value: "98%", label: "ENSEMBLE ACCURACY", detail: "Dual stacked classifier ensemble outperforming single-model baselines" }
+  { 
+    value: "130+", 
+    label: "ACTIVE SAAS USERS", 
+    detail: "Shipped tenant isolation, leave ledger, and role APIs on production HRMS at Z.APPS.",
+    linkTarget: "#projects",
+    linkLabel: "View HRMS Project ↗"
+  },
+  { 
+    value: "80%", 
+    label: "FEWER REDUNDANT CALLS", 
+    detail: "Measured query reduction via bulk role-map refactoring; cut response time by ~1s.",
+    linkTarget: "#architecture",
+    linkLabel: "Inspect Query Tuning ↗"
+  },
+  { 
+    value: "98%", 
+    label: "ENSEMBLE ML ACCURACY", 
+    detail: "Evaluated dual-stacked classifier (RandomForest + GradientBoost + Meta-Learner).",
+    linkTarget: "#projects",
+    linkLabel: "View ML Ensemble ↗"
+  }
 ];
 
 export const experienceData = {
@@ -183,20 +200,20 @@ export const featuredProjects = [
   {
     id: "heart-disease-ensemble",
     slug: "heart-disease-ensemble",
-    tag: "Applied ML Research",
+    tag: "Applied ML Project",
     accentColor: "rose",
     category: "Machine Learning & Data",
     title: "Heart Disease Prediction — Dual Stacked Ensemble",
-    subtitle: "Clinical Medical AI & Stacked Classifier Research",
-    outcome: "98% test accuracy outperforming single-model baselines with zero high-risk false negatives.",
-    description: "Clinical diagnostic machine learning pipeline utilizing a dual stacked ensemble architecture combining multiple base classifiers with rigorous preprocessing for real-time predictions.",
+    subtitle: "Predictive ML Classification & Stacked Ensemble",
+    outcome: "98% test accuracy across 5-fold stratified cross-validation on clinical benchmark data.",
+    description: "Educational machine learning classification pipeline utilizing a dual-stacked ensemble architecture (Random Forest, Gradient Boosting, Logistic Regression meta-learner) with feature scaling and cross-validation.",
     bullets: [
-      "Designed a dual stacked ensemble of multiple base classifiers reaching 98% accuracy, outperforming single-model baselines.",
-      "Engineered an end-to-end preprocessing pipeline for real-time risk predictions with zero high-risk false negatives.",
-      "Conducted extensive model evaluation across 5-fold cross validation with calibrated classification thresholds."
+      "Built a stacked classifier combining diverse base learners (Random Forest, Gradient Boosting) with a logistic meta-learner.",
+      "Engineered preprocessing pipeline: feature scaling, outlier filtering, and multicollinearity evaluation via VIF.",
+      "Validated performance using 5-fold stratified cross-validation, achieving 98% test accuracy on held-out evaluation sets."
     ],
-    technologies: ["Python", "Scikit-Learn", "Stacked Ensembles", "Pandas", "NumPy", "Model Evaluation"],
-    keyStats: ["98% Accuracy", "Dual Stacked Ensemble", "Zero False Negatives", "5-Fold CV"],
+    technologies: ["Python", "Scikit-Learn", "Stacked Ensembles", "Pandas", "Cross-Validation"],
+    keyStats: ["98% Accuracy", "Dual Stacked Ensemble", "5-Fold CV", "Scikit-Learn"],
     links: {
       github: "https://github.com/UthejSaiThandlam",
       live: null,
@@ -285,53 +302,52 @@ export const categorizedSkills = [
     icon: "code",
     color: "blue",
     skills: [
-      { name: "Python", level: "Expert", variant: "expert" },
-      { name: "Java", level: "Advanced", variant: "advanced" },
-      { name: "JavaScript", level: "Advanced", variant: "advanced" },
-      { name: "SQL", level: "Advanced", variant: "advanced" },
-      { name: "C", level: "Intermediate", variant: "intermediate" }
-    ]
-  },
-  {
-    id: "frontend",
-    category: "Frontend",
-    icon: "globe",
-    color: "purple",
-    skills: [
-      { name: "React.js", level: "Advanced", variant: "advanced" },
-      { name: "HTML5", level: "Expert", variant: "expert" },
-      { name: "CSS3", level: "Expert", variant: "expert" },
-      { name: "Tailwind CSS", level: "Advanced", variant: "advanced" },
-      { name: "Bootstrap", level: "Advanced", variant: "advanced" },
-      { name: "Responsive Design", level: "Advanced", variant: "advanced" }
+      { name: "Python", level: "Core skill", variant: "core" },
+      { name: "SQL", level: "Production queries", variant: "production" },
+      { name: "JavaScript", level: "Full-stack apps", variant: "applied" },
+      { name: "Java", level: "OOP & Algorithms", variant: "applied" },
+      { name: "C", level: "Foundations", variant: "applied" }
     ]
   },
   {
     id: "backend",
     category: "Backend & Systems",
     icon: "terminal",
-    color: "emerald",
+    color: "coral",
     skills: [
-      { name: "Django & DRF", level: "Expert", variant: "expert" },
-      { name: "REST API Design", level: "Expert", variant: "expert" },
-      { name: "Multi-Tenant Architecture", level: "Advanced", variant: "advanced" },
-      { name: "Microservices", level: "Advanced", variant: "advanced" },
-      { name: "JWT Auth & RBAC", level: "Advanced", variant: "advanced" },
-      { name: "MySQL & SQLite", level: "Advanced", variant: "advanced" }
+      { name: "Django REST Framework", level: "Production experience", variant: "production" },
+      { name: "Multi-Tenant Architecture", level: "5-layer isolation", variant: "production" },
+      { name: "REST API Design", level: "RBAC & JWT Auth", variant: "production" },
+      { name: "Query Optimization", level: "-80% N+1 refactor", variant: "production" },
+      { name: "MySQL & SQLite", level: "Relational DBs", variant: "applied" },
+      { name: "Docker & Linux", level: "Containerization", variant: "applied" }
     ]
   },
   {
     id: "ai-ml",
     category: "AI / ML & LLMs",
     icon: "brain",
-    color: "amber",
+    color: "cyan",
     skills: [
-      { name: "RAG Pipelines", level: "Expert", variant: "expert" },
-      { name: "Google Gemini & Groq LLM", level: "Advanced", variant: "advanced" },
-      { name: "Hybrid Search (TF-IDF + BM25)", level: "Advanced", variant: "advanced" },
-      { name: "Scikit-Learn & Ensembles", level: "Advanced", variant: "advanced" },
-      { name: "Pandas & NumPy", level: "Advanced", variant: "advanced" },
-      { name: "Prompt Engineering", level: "Advanced", variant: "advanced" }
+      { name: "Hybrid RAG Pipelines", level: "Live on Render", variant: "production" },
+      { name: "Groq Llama & Gemini", level: "API orchestration", variant: "production" },
+      { name: "Scikit-Learn & Ensembles", level: "98% test accuracy", variant: "applied" },
+      { name: "TF-IDF + BM25 Fusion", level: "Hybrid retrieval", variant: "applied" },
+      { name: "Pandas & NumPy", level: "Data pipelines", variant: "applied" },
+      { name: "Prompt Engineering", level: "Structured outputs", variant: "core" }
+    ]
+  },
+  {
+    id: "frontend",
+    category: "Frontend & Delivery",
+    icon: "globe",
+    color: "purple",
+    skills: [
+      { name: "React.js", level: "Component systems", variant: "production" },
+      { name: "Tailwind CSS", level: "Design systems", variant: "core" },
+      { name: "HTML5 & Semantic UI", level: "Accessible UX", variant: "core" },
+      { name: "Git & GitHub Actions", level: "CI/CD workflows", variant: "applied" },
+      { name: "Postman & REST Tests", level: "API verification", variant: "applied" }
     ]
   }
 ];

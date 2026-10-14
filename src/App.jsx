@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { RoleProvider } from './context/RoleContext';
+import { ThemeProvider } from './context/ThemeContext';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { HomePage } from './pages/HomePage';
@@ -21,9 +22,10 @@ function App() {
   };
 
   return (
-    <RoleProvider>
-      <Router>
-        <div className="min-h-screen bg-[#070b14] text-slate-100 flex flex-col font-sans selection:bg-sky-500/20 selection:text-sky-300">
+    <ThemeProvider>
+      <RoleProvider>
+        <Router>
+          <div className="min-h-screen flex flex-col font-sans selection:bg-sky-500/20 selection:text-sky-300 transition-colors duration-300">
           <Navbar onOpenResumeModal={handleOpenResume} />
           
           <div className="flex-grow">
@@ -44,6 +46,7 @@ function App() {
         </div>
       </Router>
     </RoleProvider>
+  </ThemeProvider>
   );
 }
 

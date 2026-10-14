@@ -9,29 +9,29 @@ export default {
     extend: {
       colors: {
         bg: {
-          main: '#0B0F19',
-          surface: '#111625',
-          card: '#141B2D',
-          cardHover: '#1B243B',
+          main: '#090D15',
+          surface: '#121927',
+          card: '#121927',
+          cardHover: '#1A2438',
         },
         border: {
-          subtle: '#1E2638',
-          accent: '#2D374D',
-          coral: 'rgba(255, 101, 81, 0.4)',
+          subtle: '#273246',
+          accent: '#384863',
+          coral: 'rgba(255, 112, 92, 0.45)',
         },
         text: {
-          primary: '#F8FAFC',
-          secondary: '#94A3B8',
-          muted: '#64748B',
+          primary: '#F3F5FA',
+          secondary: '#AAB5C6',
+          muted: '#6B7A90',
         },
         accent: {
-          coral: '#FF6551',
-          coralHover: '#FF5038',
-          cyan: '#06B6D4',
+          coral: '#FF705C',
+          coralHover: '#FF5840',
+          cyan: '#61CAE8',
+          emerald: '#28C49A',
           sky: '#38BDF8',
           purple: '#A855F7',
           blue: '#4F8CFF',
-          teal: '#2DD4BF',
         }
       },
       fontFamily: {
@@ -40,7 +40,7 @@ export default {
         mono: ['JetBrains Mono', 'Fira Code', 'Consolas', 'monospace'],
       },
       maxWidth: {
-        'content': '1180px',
+        'content': '1200px',
       },
       screens: {
         'xs': '380px',
@@ -48,25 +48,20 @@ export default {
       animation: {
         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'float-slow': 'float 5s ease-in-out infinite',
-        'float-reverse': 'floatReverse 6s ease-in-out infinite',
         'glow-pulse': 'glowPulse 4s ease-in-out infinite',
-        'fadeIn': 'fadeIn 0.3s ease-in-out',
+        'fadeIn': 'fadeIn 0.25s ease-in-out',
       },
       keyframes: {
         float: {
           '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-8px)' },
-        },
-        floatReverse: {
-          '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(8px)' },
+          '50%': { transform: 'translateY(-6px)' },
         },
         glowPulse: {
           '0%, 100%': { opacity: '0.8', transform: 'scale(1)' },
           '50%': { opacity: '1', transform: 'scale(1.02)' },
         },
         fadeIn: {
-          '0%': { opacity: '0', transform: 'translateY(6px)' },
+          '0%': { opacity: '0', transform: 'translateY(4px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         }
       }

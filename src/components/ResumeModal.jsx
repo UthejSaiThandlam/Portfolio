@@ -5,6 +5,20 @@ import { personalInfo, experienceData } from '../data/portfolioData';
 export const ResumeModal = ({ isOpen, onClose, initialLens = 'engineer' }) => {
   const [selectedLens, setSelectedLens] = useState(initialLens);
 
+  React.useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') onClose();
+    };
+    if (isOpen) {
+      window.addEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'hidden';
+    }
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen, onClose]);
+
   if (!isOpen) return null;
 
   const pdfMap = {
@@ -26,45 +40,59 @@ export const ResumeModal = ({ isOpen, onClose, initialLens = 'engineer' }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 bg-black/80 backdrop-blur-md overflow-y-auto animate-fadeIn">
-      <div className="relative w-full max-w-3xl bg-[#0D1017] border border-white/[0.12] rounded-2xl shadow-2xl overflow-hidden my-auto max-h-[92vh] flex flex-col">
+    <div 
+      onClick={(e) => {
+        if (e.target === e.currentTarget) onClose();
+      }}
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 bg-black/80 backdrop-blur-md overflow-y-auto animate-fadeIn cursor-pointer"
+    >
+      <div 
+        onClick={(e) => e.stopPropagation()}
+        className="relative w-full max-w-3xl bg-white dark:bg-[#121927] border border-slate-200 dark:border-[#273246] rounded-2xl shadow-2xl overflow-hidden my-auto max-h-[92vh] flex flex-col cursor-default"
+      >
         
         {/* Modal Header */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 sm:p-5 border-b border-white/[0.08] bg-[#090C12]">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 sm:p-5 border-b border-slate-200 dark:border-[#273246] bg-slate-50 dark:bg-[#0D1320]">
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-[#f5a285]/20 text-[#f5a285] flex items-center justify-center border border-[#f5a285]/30">
+            <div className="w-8 h-8 rounded-lg bg-[#FF705C]/15 text-[#FF705C] flex items-center justify-center border border-[#FF705C]/30">
               <FileText className="w-4 h-4" />
             </div>
             <div>
-              <h3 className="font-bold text-sm sm:text-base text-white font-heading">
-                Verified Resume · {personalInfo.name}
+              <h3 className="font-bold text-sm sm:text-base text-slate-900 dark:text-[#F3F5FA] font-heading">
+                Verified Resume &bull; {personalInfo.name}
               </h3>
-              <p className="text-xs text-slate-400 font-mono">
-                Updated for SDE, Backend, and AI/ML Engineering
+              <p className="text-xs text-slate-600 dark:text-[#AAB5C6] font-mono">
+                B.Tech CSE (AI &amp; ML) &bull; Django REST &bull; Applied AI
               </p>
             </div>
           </div>
 
           <div className="flex items-center gap-2">
-            <div className="flex items-center bg-[#141822] p-1 rounded-lg border border-white/[0.08]">
-              {['engineer', 'product', 'analyst'].map((lens) => (
+            <div className="flex items-center bg-slate-200/80 dark:bg-[#090D15] p-1 rounded-lg border border-slate-300 dark:border-[#273246]">
+              <span className="text-[10px] font-mono text-slate-500 dark:text-[#6B7A90] px-1.5 uppercase hidden sm:inline">Role:</span>
+              {[
+                { id: 'engineer', label: 'Engineer (Primary)' },
+                { id: 'product', label: 'Product' },
+                { id: 'analyst', label: 'Analyst' }
+              ].map((lens) => (
                 <button
-                  key={lens}
-                  onClick={() => setSelectedLens(lens)}
-                  className={`px-2.5 py-1 text-xs font-mono rounded capitalize transition-colors ${
-                    selectedLens === lens 
-                      ? 'bg-[#f5a285] text-slate-950 font-bold' 
-                      : 'text-slate-400 hover:text-white'
+                  key={lens.id}
+                  onClick={() => setSelectedLens(lens.id)}
+                  className={`px-2.5 py-1 text-xs font-mono rounded transition-colors cursor-pointer ${
+                    selectedLens === lens.id 
+                      ? 'bg-[#FF705C] text-[#090D15] font-bold shadow-sm' 
+                      : 'text-slate-600 dark:text-[#AAB5C6] hover:text-slate-900 dark:hover:text-[#F3F5FA]'
                   }`}
                 >
-                  {lens}
+                  {lens.label}
                 </button>
               ))}
             </div>
 
             <button
               onClick={onClose}
-              className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/[0.06] transition-colors"
+              aria-label="Close modal"
+              className="p-1.5 rounded-lg text-slate-500 dark:text-[#AAB5C6] hover:text-slate-900 dark:hover:text-[#F3F5FA] hover:bg-slate-200 dark:hover:bg-white/[0.08] transition-colors cursor-pointer"
             >
               <X className="w-5 h-5" />
             </button>
@@ -72,19 +100,19 @@ export const ResumeModal = ({ isOpen, onClose, initialLens = 'engineer' }) => {
         </div>
 
         {/* Modal Content - Document Layout */}
-        <div className="overflow-y-auto p-5 sm:p-8 space-y-6 text-xs text-slate-300 leading-relaxed font-sans bg-[#0B0E15]">
+        <div className="overflow-y-auto p-5 sm:p-8 space-y-6 text-xs text-slate-700 dark:text-[#AAB5C6] leading-relaxed font-sans bg-white dark:bg-[#090D15]">
           
           {/* Header Info */}
-          <div className="border-b border-white/[0.08] pb-4 space-y-1.5 text-center sm:text-left">
+          <div className="border-b border-slate-200 dark:border-[#273246] pb-4 space-y-1.5 text-center sm:text-left">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-              <h2 className="text-2xl font-extrabold text-white font-heading tracking-tight">
+              <h2 className="text-2xl font-extrabold text-slate-900 dark:text-[#F3F5FA] font-heading tracking-tight">
                 {personalInfo.name}
               </h2>
-              <span className="text-xs font-mono font-semibold px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 self-center sm:self-auto">
-                B.Tech CSE (AI & ML) 2026 · CGPA 8.23
+              <span className="text-xs font-mono font-semibold px-3 py-1 rounded-full bg-[#28C49A]/15 text-[#28C49A] border border-[#28C49A]/30 self-center sm:self-auto">
+                B.Tech CSE (AI &amp; ML) 2026 &bull; CGPA 8.23
               </span>
             </div>
-            <div className="text-xs font-mono text-[#f5a285] font-semibold">
+            <div className="text-xs font-mono text-[#FF705C] font-semibold">
               {getLensTitle()}
             </div>
             <div className="flex flex-wrap items-center justify-center sm:justify-start gap-3 text-[11px] font-mono text-slate-400 pt-1">

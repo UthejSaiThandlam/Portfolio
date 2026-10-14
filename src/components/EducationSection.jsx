@@ -4,35 +4,40 @@ import { GraduationCap } from 'lucide-react';
 
 export const EducationSection = () => {
   return (
-    <section id="education" className="py-20 md:py-28 border-b border-white/[0.06] bg-[#080B11] relative">
-      <div className="max-w-content mx-auto px-4 sm:px-6 space-y-14">
+    <section id="education" className="section-wrapper bg-[#090D15] relative">
+      <div className="max-w-content mx-auto px-4 sm:px-6 space-y-12">
         
-        {/* Header - Directly matching Image 4 */}
-        <div className="text-center space-y-3 max-w-xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/25 text-[11px] font-mono uppercase tracking-[0.15em] text-indigo-400">
-            Education
+        {/* Section Header */}
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-2 border-b border-[#273246]/60">
+          <div className="space-y-2">
+            <div className="flex items-center gap-2">
+              <span className="w-8 h-[2px] bg-[#61CAE8] inline-block rounded-full"></span>
+              <span className="text-xs font-mono uppercase tracking-[0.16em] text-[#61CAE8] font-bold">
+                ACADEMICS &amp; CERTIFICATION
+              </span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-heading text-[#F3F5FA] tracking-tight">
+              Education &amp; Credentials Timeline
+            </h2>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-heading text-white tracking-tight leading-tight">
-            My education and certification journey timeline.
-          </h2>
-          <p className="text-xs sm:text-sm text-slate-400 font-sans leading-relaxed">
-            Academic milestones, foundational coursework, and verified professional certifications.
+          <p className="text-xs sm:text-sm text-[#AAB5C6] font-sans max-w-md leading-relaxed">
+            Academic degree, verified coursework, and official technical certifications in Python Full-Stack &amp; Applied AI.
           </p>
         </div>
 
-        {/* Central Vertical Timeline - Exact Recreation of Image 4 */}
+        {/* Central Vertical Timeline */}
         <div className="relative max-w-4xl mx-auto">
           
           {/* Continuous Vertical Center Line (Desktop) */}
-          <div className="hidden md:block absolute left-1/2 top-4 bottom-4 -translate-x-1/2 w-[2px] bg-gradient-to-b from-indigo-500/60 via-purple-500/40 to-indigo-500/20" />
+          <div className="hidden md:block absolute left-1/2 top-4 bottom-4 -translate-x-1/2 w-[2px] bg-slate-300 dark:bg-[#273246]" />
 
-          {/* Central Graduation Cap Icon Milestone (Matching Image 4) */}
-          <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-[#0E1320] border-2 border-indigo-400 shadow-xl shadow-indigo-500/30 items-center justify-center text-indigo-300">
+          {/* Central Graduation Cap Icon Milestone */}
+          <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white dark:bg-[#121927] border-2 border-[#FF705C] shadow-xl items-center justify-center text-[#FF705C]">
             <GraduationCap className="w-5 h-5" />
           </div>
 
           {/* Timeline Items List */}
-          <div className="space-y-12 md:space-y-16">
+          <div className="space-y-10 md:space-y-14">
             {educationTimeline.map((item) => {
               return (
                 <div
@@ -40,45 +45,44 @@ export const EducationSection = () => {
                   className="relative grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 items-start"
                 >
                   
-                  {/* Left Column (Institution & Date on Desktop, matching Image 4 Left Column) */}
-                  <div className="md:col-span-5 md:text-right space-y-1 pl-4 md:pl-0 border-l-2 md:border-l-0 border-indigo-500/40">
-                    <h3 className="text-base sm:text-lg font-bold font-heading text-white tracking-tight">
+                  {/* Left Column (Institution & Date on Desktop) */}
+                  <div className="md:col-span-5 md:text-right space-y-1 pl-4 md:pl-0 border-l-2 md:border-l-0 border-slate-300 dark:border-[#273246]">
+                    <h3 className="text-base sm:text-lg font-bold font-heading text-slate-900 dark:text-[#F3F5FA] tracking-tight">
                       {item.institution}
                     </h3>
-                    <div className="text-xs font-mono text-slate-400">
+                    <div className="text-xs font-mono text-slate-600 dark:text-[#AAB5C6]">
                       {item.period}
                     </div>
                   </div>
 
-                  {/* Center Column Spacer / Mobile Dot */}
+                  {/* Center Column Spacer / Desktop Dot */}
                   <div className="hidden md:flex md:col-span-2 justify-center pt-1.5 relative z-10">
-                    <div className="w-3.5 h-3.5 rounded-full bg-indigo-500 border-2 border-[#080B11] shadow-md shadow-indigo-500/50" />
+                    <div className="w-3.5 h-3.5 rounded-full bg-[#FF705C] border-2 border-white dark:border-[#090D15] shadow" />
                   </div>
 
-                  {/* Right Column (Degree, Specialization, Score, matching Image 4 Right Column) */}
-                  <div className="md:col-span-5 space-y-2.5 text-left pl-4 md:pl-0 border-l-2 md:border-l-0 border-indigo-500/40 md:border-none">
+                  {/* Right Column (Degree, Specialization, Score Card) */}
+                  <div className="md:col-span-5 space-y-2 text-left pl-4 md:pl-0 border-l-2 md:border-l-0 border-slate-300 dark:border-[#273246]">
                     
-                    <div className="flex flex-wrap items-baseline gap-2">
-                      <h4 className="text-sm sm:text-base font-bold font-heading text-white">
-                        {item.degree}
-                      </h4>
-                    </div>
-
-                    <p className="text-xs sm:text-[13px] text-slate-300 leading-relaxed font-sans">
-                      {item.specialization}
-                    </p>
-
-                    {item.score && (
-                      <div className="inline-block px-3 py-1 rounded-md text-xs font-mono font-semibold bg-indigo-500/10 text-indigo-300 border border-indigo-500/25">
-                        {item.score}
+                    <div className="spec-card p-4 space-y-2 bg-white dark:bg-[#121927] border border-slate-200 dark:border-[#273246]">
+                      <div className="flex items-center justify-between gap-2">
+                        <span className="text-xs sm:text-[13px] font-bold font-heading text-slate-900 dark:text-[#F3F5FA]">
+                          {item.degree}
+                        </span>
+                        <span className="text-xs font-mono font-bold text-emerald-600 dark:text-[#28C49A] px-2 py-0.5 rounded bg-emerald-50 dark:bg-[#090D15] border border-emerald-200 dark:border-[#273246]">
+                          {item.score}
+                        </span>
                       </div>
-                    )}
 
-                    {item.highlights && (
-                      <p className="text-xs text-slate-400 leading-relaxed font-sans pt-0.5">
-                        {item.highlights}
-                      </p>
-                    )}
+                      <div className="text-xs text-slate-700 dark:text-[#AAB5C6] font-sans">
+                        {item.field}
+                      </div>
+
+                      {item.details && (
+                        <p className="text-[11px] text-slate-500 dark:text-[#6B7A90] font-sans pt-1 border-t border-slate-200 dark:border-[#273246]/60">
+                          {item.details}
+                        </p>
+                      )}
+                    </div>
 
                   </div>
 

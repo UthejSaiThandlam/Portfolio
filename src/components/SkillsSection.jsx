@@ -1,58 +1,40 @@
 import React from 'react';
 import { categorizedSkills } from '../data/portfolioData';
-import { Globe, Brain } from 'lucide-react';
+import { Globe, Brain, Terminal, Code2 } from 'lucide-react';
 
 export const SkillsSection = () => {
-  // Category icon mapping matching Image 2
   const getCategoryIcon = (iconName) => {
     switch (iconName) {
       case 'code':
-        return (
-          <div className="w-10 h-10 rounded-xl bg-sky-500 text-slate-950 flex items-center justify-center shadow-lg shadow-sky-500/20">
-            <span className="font-mono font-black text-base">&lt;/&gt;</span>
-          </div>
-        );
-      case 'globe':
-        return (
-          <div className="w-10 h-10 rounded-xl bg-purple-500 text-white flex items-center justify-center shadow-lg shadow-purple-500/20">
-            <Globe className="w-5 h-5 stroke-[2.5]" />
-          </div>
-        );
+        return <Code2 className="w-5 h-5 text-[#61CAE8]" />;
       case 'terminal':
-        return (
-          <div className="w-10 h-10 rounded-xl bg-emerald-500 text-slate-950 flex items-center justify-center shadow-lg shadow-emerald-500/20">
-            <span className="font-mono font-black text-base">&gt;_</span>
-          </div>
-        );
+        return <Terminal className="w-5 h-5 text-[#FF705C]" />;
       case 'brain':
+        return <Brain className="w-5 h-5 text-[#28C49A]" />;
+      case 'globe':
       default:
-        return (
-          <div className="w-10 h-10 rounded-xl bg-amber-500 text-slate-950 flex items-center justify-center shadow-lg shadow-amber-500/20">
-            <Brain className="w-5 h-5 stroke-[2.5]" />
-          </div>
-        );
+        return <Globe className="w-5 h-5 text-indigo-400" />;
     }
   };
 
-  // Badge styling matching Image 2 pills (Expert = green, Advanced = blue, Intermediate = amber)
   const getLevelBadge = (level, variant) => {
     switch (variant) {
-      case 'expert':
+      case 'production':
         return (
-          <span className="px-3.5 py-1 rounded-full text-xs font-semibold font-mono tracking-tight bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
+          <span className="px-2.5 py-0.5 rounded-md text-[10px] font-semibold font-mono tracking-tight bg-[#28C49A]/15 text-[#28C49A] border border-[#28C49A]/30">
             {level}
           </span>
         );
-      case 'intermediate':
+      case 'core':
         return (
-          <span className="px-3.5 py-1 rounded-full text-xs font-semibold font-mono tracking-tight bg-amber-500/15 text-amber-400 border border-amber-500/30">
+          <span className="px-2.5 py-0.5 rounded-md text-[10px] font-semibold font-mono tracking-tight bg-[#FF705C]/15 text-[#FF705C] border border-[#FF705C]/30">
             {level}
           </span>
         );
-      case 'advanced':
+      case 'applied':
       default:
         return (
-          <span className="px-3.5 py-1 rounded-full text-xs font-semibold font-mono tracking-tight bg-sky-500/15 text-sky-400 border border-sky-500/30">
+          <span className="px-2.5 py-0.5 rounded-md text-[10px] font-semibold font-mono tracking-tight bg-[#61CAE8]/15 text-[#61CAE8] border border-[#61CAE8]/30">
             {level}
           </span>
         );
@@ -60,46 +42,53 @@ export const SkillsSection = () => {
   };
 
   return (
-    <section id="skills" className="py-20 md:py-28 border-b border-white/[0.06] bg-[#07090E] relative">
+    <section id="skills" className="section-wrapper bg-[#090D15] relative">
       <div className="max-w-content mx-auto px-4 sm:px-6 space-y-12">
         
         {/* Section Header */}
-        <div className="text-center space-y-3 max-w-xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] font-mono uppercase tracking-[0.15em] text-sky-400">
-            Technical Stack
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-2 border-b border-[#273246]/60">
+          <div className="space-y-2">
+            <div className="flex items-center gap-2">
+              <span className="w-8 h-[2px] bg-[#28C49A] inline-block rounded-full"></span>
+              <span className="text-xs font-mono uppercase tracking-[0.16em] text-[#28C49A] font-bold">
+                COMPETENCIES
+              </span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-heading text-[#F3F5FA] tracking-tight">
+              Evidence-Backed Technical Skills
+            </h2>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-heading text-white tracking-tight">
-            Skills & Competencies
-          </h2>
-          <p className="text-xs sm:text-sm text-slate-400 font-sans leading-relaxed">
-            Technologies actively deployed in production systems, multi-tenant architectures, and live AI systems.
+          <p className="text-xs sm:text-sm text-[#AAB5C6] font-sans max-w-md leading-relaxed">
+            Technologies mapped directly to production modules, multi-tenant architectures, and live applied AI systems.
           </p>
         </div>
 
-        {/* Skills Cards Grid - Exact Replication of Image 2 */}
+        {/* Skills Cards Grid: 4 Equal Columns */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-start">
           {categorizedSkills.map((category) => (
             <div
               key={category.id}
-              className="rounded-2xl bg-[#0D0F14] border border-white/[0.08] hover:border-white/[0.18] p-5 sm:p-6 space-y-5 transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1"
+              className="spec-card p-6 space-y-5 transition-all duration-200"
             >
               
-              {/* Category Header with Colored Square Icon Box (Matching Image 2) */}
-              <div className="flex items-center gap-3.5 pb-2 border-b border-white/[0.06]">
-                {getCategoryIcon(category.icon, category.color)}
-                <h3 className="text-lg font-bold font-heading text-white tracking-tight">
+              {/* Category Header */}
+              <div className="flex items-center gap-3 pb-3 border-b border-slate-200 dark:border-[#273246]">
+                <div className="w-8 h-8 rounded-lg bg-slate-100 dark:bg-[#090D15] border border-slate-200 dark:border-[#273246] flex items-center justify-center">
+                  {getCategoryIcon(category.icon)}
+                </div>
+                <h3 className="text-base font-bold font-heading text-slate-900 dark:text-[#F3F5FA] tracking-tight">
                   {category.category}
                 </h3>
               </div>
 
-              {/* Skill Rows (Dark tiles with Skill Name on left & Pill Badge on right) */}
-              <div className="space-y-2.5">
+              {/* Skill Rows */}
+              <div className="space-y-2">
                 {category.skills.map((skill, idx) => (
                   <div
                     key={idx}
-                    className="flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-[#13161F] hover:bg-[#181C28] transition-colors border border-white/[0.04] group"
+                    className="flex items-center justify-between px-3 py-2 rounded-lg bg-slate-100 dark:bg-[#090D15] hover:bg-slate-200 dark:hover:bg-[#1A2438] transition-colors border border-slate-200 dark:border-[#273246]/60"
                   >
-                    <span className="text-xs sm:text-[13px] font-mono text-slate-200 group-hover:text-white transition-colors">
+                    <span className="text-xs font-mono text-slate-900 dark:text-[#F3F5FA] font-semibold">
                       {skill.name}
                     </span>
                     {getLevelBadge(skill.level, skill.variant)}
@@ -112,18 +101,18 @@ export const SkillsSection = () => {
         </div>
 
         {/* Supporting Architecture & Tooling Badges */}
-        <div className="p-6 rounded-2xl bg-[#0D0F14] border border-white/[0.06] text-center space-y-3">
-          <div className="text-xs font-mono uppercase tracking-wider text-slate-400">
-            Additional Enterprise Engineering & Tools
+        <div className="p-6 rounded-2xl bg-white dark:bg-[#121927] border border-slate-200 dark:border-[#273246] text-center space-y-3 shadow-sm">
+          <div className="text-xs font-mono uppercase tracking-wider text-slate-500 dark:text-[#6B7A90] font-semibold">
+            Operational Engineering &bull; Tooling &bull; Protocols
           </div>
           <div className="flex flex-wrap items-center justify-center gap-2">
             {[
-              "Multi-Tenant Architecture", "RBAC", "JWT Auth", "Query Optimization", 
+              "Multi-Tenant Architecture", "RBAC", "JWT Claims", "Query Optimization", 
               "Audit Logging", "Docker", "Git", "GitHub Actions", "Postman", "Render", "VS Code"
             ].map((tool, idx) => (
               <span
                 key={idx}
-                className="px-3 py-1 rounded-full text-xs font-mono text-slate-300 bg-[#141822] border border-white/[0.08]"
+                className="px-3 py-1 rounded-md text-xs font-mono text-slate-700 dark:text-[#AAB5C6] bg-slate-100 dark:bg-[#090D15] border border-slate-200 dark:border-[#273246]"
               >
                 {tool}
               </span>

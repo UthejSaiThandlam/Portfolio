@@ -1,54 +1,58 @@
 import React, { useState } from 'react';
-import { Terminal, Layers, Cpu, Zap, Sparkles, ExternalLink } from 'lucide-react';
+import { Terminal, Layers, Cpu, Zap, Sparkles, ExternalLink, ArrowRight, CheckCircle2 } from 'lucide-react';
 
 export const InteractiveConsole = () => {
   const [activeTab, setActiveTab] = useState('rag');
 
   const tabs = [
-    { id: 'rag', label: 'Live RAG Planner', icon: Sparkles },
+    { id: 'rag', label: 'Hybrid RAG Pipeline', icon: Sparkles },
     { id: 'tenancy', label: '5-Layer Tenancy', icon: Layers },
-    { id: 'tree', label: 'O(n) Org Tree Builder', icon: Cpu },
-    { id: 'query', label: 'N+1 Query Refactor', icon: Zap },
-    { id: 'groq', label: 'Groq LLM Chatbot', icon: Terminal }
+    { id: 'query', label: 'N+1 Query Refactor (-80%)', icon: Zap },
+    { id: 'tree', label: 'O(n) Org Tree Builder', icon: Cpu }
   ];
 
   return (
-    <section className="py-16 md:py-20 border-b border-white/[0.06] bg-[#070B14]/60 relative">
-      <div className="max-w-content mx-auto px-4 sm:px-6 space-y-8">
+    <section id="architecture" className="section-wrapper bg-[#090D15] relative">
+      <div className="max-w-content mx-auto px-4 sm:px-6 space-y-10">
         
-        {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-          <div className="space-y-1.5">
-            <span className="text-[11px] font-mono uppercase tracking-[0.14em] text-cyan-400 font-bold block">
-              ENTERPRISE PRODUCTION ARCHITECTURE
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-bold font-heading text-white tracking-tight">
-              Interactive System Architecture & Code Console
+        {/* Section Header */}
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-2 border-b border-[#273246]/60">
+          <div className="space-y-2">
+            <div className="flex items-center gap-2">
+              <span className="w-8 h-[2px] bg-[#61CAE8] inline-block rounded-full"></span>
+              <span className="text-xs font-mono uppercase tracking-[0.16em] text-[#61CAE8] font-bold">
+                SIGNATURE ARCHITECTURE EXPLORER
+              </span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-heading text-[#F3F5FA] tracking-tight">
+              System Design &amp; Pipeline Inspection
             </h2>
           </div>
 
-          <span className="text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-full flex items-center gap-1.5 self-start sm:self-auto">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            Live Production Proven
-          </span>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#121927] border border-[#273246] text-xs font-mono text-[#AAB5C6] self-start sm:self-auto">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#61CAE8] animate-pulse" />
+            <span>Interactive Architecture Walkthrough</span>
+          </div>
         </div>
 
-        {/* Terminal Window Card (Inspired by Image 2 & 4) */}
-        <div className="spec-card overflow-hidden border border-white/[0.09] shadow-2xl">
+        {/* Terminal / Explorer Container */}
+        <div className="spec-card overflow-hidden border border-[#273246] shadow-2xl bg-[#121927]">
           
-          {/* Mac Dots & Tab Header */}
-          <div className="px-4 py-3 bg-[#0A101D] border-b border-white/[0.08] flex flex-wrap items-center justify-between gap-3">
+          {/* Top Bar with System Breadcrumb and Tabs */}
+          <div className="px-5 py-3.5 bg-[#0D1320] border-b border-[#273246] flex flex-wrap items-center justify-between gap-3">
             
-            {/* Window Controls */}
-            <div className="flex items-center gap-2">
+            {/* Window Controls & Breadcrumb */}
+            <div className="flex items-center gap-2.5">
               <span className="w-3 h-3 rounded-full bg-rose-500/80 inline-block" />
               <span className="w-3 h-3 rounded-full bg-amber-500/80 inline-block" />
               <span className="w-3 h-3 rounded-full bg-emerald-500/80 inline-block" />
-              <span className="text-xs font-mono text-slate-400 ml-2">core_system://architecture.spec</span>
+              <span className="text-xs font-mono text-[#61CAE8] ml-2 hidden sm:inline">
+                architecture://{activeTab}.pipeline
+              </span>
             </div>
 
-            {/* Interactive Tabs with Responsive Mobile Scroll */}
-            <div className="flex items-center gap-1.5 overflow-x-auto max-w-full pb-0.5 sm:pb-0 scrollbar-none">
+            {/* Interactive Tabs */}
+            <div className="flex items-center gap-1.5 overflow-x-auto max-w-full pb-0.5 sm:pb-0">
               {tabs.map((tab) => {
                 const Icon = tab.icon;
                 const isActive = activeTab === tab.id;
@@ -56,10 +60,10 @@ export const InteractiveConsole = () => {
                   <button
                     key={tab.id}
                     onClick={() => setActiveTab(tab.id)}
-                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono transition-all duration-200 whitespace-nowrap ${
+                    className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-mono transition-all duration-200 whitespace-nowrap cursor-pointer ${
                       isActive
-                        ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 font-semibold shadow-sm'
-                        : 'text-slate-400 hover:text-white hover:bg-white/[0.04] border border-transparent'
+                        ? 'bg-[#FF705C] text-[#090D15] font-bold shadow-md'
+                        : 'bg-[#090D15] text-[#AAB5C6] hover:text-[#F3F5FA] border border-[#273246] hover:border-[#FF705C]/40'
                     }`}
                   >
                     <Icon className="w-3.5 h-3.5" />
@@ -71,169 +75,181 @@ export const InteractiveConsole = () => {
 
           </div>
 
-          {/* Console Content Display */}
-          <div className="p-5 sm:p-6 bg-[#070B14]/90 font-mono text-xs sm:text-sm text-slate-300 space-y-4">
+          {/* Interactive Content Panels */}
+          <div className="p-6 sm:p-8 space-y-6">
             
-            {/* Tab 0: Live RAG Planner */}
+            {/* Tab 1: Hybrid RAG Pipeline */}
             {activeTab === 'rag' && (
-              <div className="space-y-4">
-                <div className="flex items-center justify-between text-xs">
-                  <div className="flex items-center gap-2 text-cyan-400">
-                    <span>$</span>
-                    <span className="text-white">curl -X POST https://rag-ai-planner-1.onrender.com/api/query -d '{`{"query": "syllabus milestones", "mode": "hybrid"}`}'</span>
+              <div className="space-y-6 animate-fadeIn">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-3 border-b border-slate-200 dark:border-[#273246]">
+                  <div>
+                    <h3 className="text-xl font-bold font-heading text-slate-900 dark:text-[#F3F5FA]">
+                      Hybrid RAG Document Planner &amp; Retrieval Engine
+                    </h3>
+                    <p className="text-xs text-slate-700 dark:text-[#AAB5C6] font-sans">
+                      Combines 70% dense semantic similarity with 30% BM25 keyword matching and multi-provider fallback.
+                    </p>
                   </div>
                   <a
                     href="https://rag-ai-planner-1.onrender.com/"
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-[#f5a285] text-slate-950 font-bold font-mono hover:bg-[#ffb399] transition-all"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#FF705C] text-[#090D15] text-xs font-mono font-bold hover:bg-[#FF5840] transition-colors self-start shrink-0 shadow-sm"
                   >
-                    <ExternalLink className="w-3 h-3" /> Live Demo
+                    <span>Inspect Live Render App</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
                   </a>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-3 pt-2">
-                  <div className="p-3.5 rounded-lg bg-[#0E172A] border border-purple-500/30 space-y-1">
-                    <span className="text-[10px] text-purple-400 block font-bold">STAGE 1: INGESTION</span>
-                    <div className="text-xs font-bold text-white">Multi-Format Parser</div>
-                    <p className="text-[11px] text-slate-400 font-sans">Sliding window chunking (500 chars, 100 overlap) across PDF, DOCX, TXT, MD.</p>
-                  </div>
-
-                  <div className="p-3.5 rounded-lg bg-[#0E172A] border border-cyan-500/30 space-y-1">
-                    <span className="text-[10px] text-cyan-400 block font-bold">STAGE 2: VECTOR INDEX</span>
-                    <div className="text-xs font-bold text-white">TF-IDF + Inverted Index</div>
-                    <p className="text-[11px] text-slate-400 font-sans">Document vectors + frequency index for sub-millisecond sparse lookup.</p>
-                  </div>
-
-                  <div className="p-3.5 rounded-lg bg-[#0E172A] border border-emerald-500/30 space-y-1">
-                    <span className="text-[10px] text-emerald-400 block font-bold">STAGE 3: HYBRID FUSION</span>
-                    <div className="text-xs font-bold text-white">70% Semantic + 30% BM25</div>
-                    <p className="text-[11px] text-slate-400 font-sans">Linear rank fusion balancing concept proximity with strict terminology recall.</p>
-                  </div>
-
-                  <div className="p-3.5 rounded-lg bg-[#0E172A] border border-amber-500/30 space-y-1">
-                    <span className="text-[10px] text-amber-400 block font-bold">STAGE 4: LLM FALLBACK</span>
-                    <div className="text-xs font-bold text-white">Gemini &rarr; Groq Llama 3.3</div>
-                    <p className="text-[11px] text-slate-400 font-sans">Automatic provider rollover ensuring 99.9% uptime and citations (top-5 chunks).</p>
-                  </div>
+                {/* Visual Pipeline Stages */}
+                <div className="grid grid-cols-1 sm:grid-cols-4 gap-3">
+                  {[
+                    { step: "01. Ingestion", desc: "PDF, DOCX, TXT parsing with sliding-window chunking (500 chars, 100 overlap)" },
+                    { step: "02. Hybrid Index", desc: "Dual index: TF-IDF vector matrix + BM25 keyword inverted index" },
+                    { step: "03. Fusion Score", desc: "Rank = 0.70 × CosineSim + 0.30 × BM25Score, re-ranking top-5 chunks" },
+                    { step: "04. LLM Generation", desc: "Gemini 2.5 Flash fallback to Groq Llama 3.3 70B with cited page sources" }
+                  ].map((s, idx) => (
+                    <div key={idx} className="p-3.5 rounded-xl bg-slate-100 dark:bg-[#090D15] border border-slate-200 dark:border-[#273246] space-y-1.5">
+                      <span className="text-[11px] font-mono text-sky-600 dark:text-[#61CAE8] font-bold block">{s.step}</span>
+                      <p className="text-xs text-slate-700 dark:text-[#AAB5C6] font-sans leading-relaxed">{s.desc}</p>
+                    </div>
+                  ))}
                 </div>
 
-                <div className="p-3 rounded bg-[#0A101D] border border-white/[0.06] text-xs text-emerald-400 flex flex-wrap items-center justify-between gap-2">
-                  <span>Pipeline Live: Deployed on Render with Cited Answers &amp; Vector Search endpoints.</span>
-                  <span className="text-[#f5a285] font-mono text-[11px]">rag-ai-planner-1.onrender.com</span>
+                {/* Code / Architecture Snippet */}
+                <div className="rounded-xl bg-[#0B0F19] border border-slate-800 dark:border-[#273246] p-4 font-mono text-xs text-[#F3F5FA] overflow-x-auto shadow-inner">
+                  <span className="text-[#6B7A90] block pb-2"># Hybrid retrieval fusion implementation</span>
+                  <pre className="text-[11.5px] leading-relaxed text-[#AAB5C6]">
+{`def hybrid_retrieve(query: str, top_k: int = 5, semantic_weight: float = 0.7):
+    # Dense semantic cosine similarity
+    query_vec = vectorizer.transform([query])
+    semantic_scores = cosine_similarity(query_vec, doc_vectors).flatten()
+
+    # Sparse BM25 keyword score
+    tokenized_query = query.lower().split()
+    bm25_scores = bm25_index.get_scores(tokenized_query)
+
+    # Normalized score fusion
+    hybrid_scores = (semantic_weight * normalize(semantic_scores) + 
+                     (1 - semantic_weight) * normalize(bm25_scores))
+    top_indices = np.argsort(hybrid_scores)[::-1][:top_k]
+    return [chunks[idx] for idx in top_indices]`}
+                  </pre>
                 </div>
               </div>
             )}
 
-            {/* Tab 1: 5-Layer Tenancy */}
+            {/* Tab 2: 5-Layer Multi-Tenancy */}
             {activeTab === 'tenancy' && (
-              <div className="space-y-4">
-                <div className="flex items-center gap-2 text-cyan-400 text-xs">
-                  <span>$</span>
-                  <span className="text-white">inspect --module multi-tenancy --layers 5</span>
+              <div className="space-y-6 animate-fadeIn">
+                <div className="pb-3 border-b border-slate-200 dark:border-[#273246]">
+                  <h3 className="text-xl font-bold font-heading text-slate-900 dark:text-[#F3F5FA]">
+                    Five-Layer Tenant Isolation Architecture
+                  </h3>
+                  <p className="text-xs text-slate-700 dark:text-[#AAB5C6] font-sans">
+                    Zero data leakage across client companies on Z.APPS production HRMS/ERP SaaS.
+                  </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-5 gap-3 pt-2">
-                  <div className="p-3 rounded-lg bg-[#0E172A] border border-cyan-500/20 space-y-1">
-                    <span className="text-[10px] text-cyan-400 block font-bold">LAYER 1</span>
-                    <div className="text-xs font-bold text-white">TenantScopedModel</div>
-                    <p className="text-[11px] text-slate-400 font-sans">Automatic tenant foreign-key scoping on all Django models.</p>
-                  </div>
-
-                  <div className="p-3 rounded-lg bg-[#0E172A] border border-cyan-500/20 space-y-1">
-                    <span className="text-[10px] text-cyan-400 block font-bold">LAYER 2</span>
-                    <div className="text-xs font-bold text-white">TenantManager</div>
-                    <p className="text-[11px] text-slate-400 font-sans">Custom querysets intercepting SQL to inject current tenant constraints.</p>
-                  </div>
-
-                  <div className="p-3 rounded-lg bg-[#0E172A] border border-cyan-500/20 space-y-1">
-                    <span className="text-[10px] text-cyan-400 block font-bold">LAYER 3</span>
-                    <div className="text-xs font-bold text-white">JWT Claims Auth</div>
-                    <p className="text-[11px] text-slate-400 font-sans">Organization & role token payload preventing cross-tenant spoofing.</p>
-                  </div>
-
-                  <div className="p-3 rounded-lg bg-[#0E172A] border border-cyan-500/20 space-y-1">
-                    <span className="text-[10px] text-cyan-400 block font-bold">LAYER 4</span>
-                    <div className="text-xs font-bold text-white">HRRouter Multi-DB</div>
-                    <p className="text-[11px] text-slate-400 font-sans">Dynamic database routing directing queries to tenant-assigned schemas.</p>
-                  </div>
-
-                  <div className="p-3 rounded-lg bg-[#0E172A] border border-cyan-500/20 space-y-1">
-                    <span className="text-[10px] text-cyan-400 block font-bold">LAYER 5</span>
-                    <div className="text-xs font-bold text-white">CompanyMiddleware</div>
-                    <p className="text-[11px] text-slate-400 font-sans">Request lifecycle resolution binding organization context thread-safe.</p>
-                  </div>
+                {/* 5 Layer Architecture Graphic */}
+                <div className="grid grid-cols-1 sm:grid-cols-5 gap-2.5">
+                  {[
+                    { num: "L1", name: "CompanyMiddleware", detail: "Resolves tenant slug from JWT payload & subdomain" },
+                    { num: "L2", name: "HRRouter", detail: "Routes write transactions to dedicated tenant DB schemas" },
+                    { num: "L3", name: "TenantManager", detail: "Filters all base ORM queries by request company context" },
+                    { num: "L4", name: "TenantScopedModel", detail: "Injects foreign key company_id and composite indices" },
+                    { num: "L5", name: "Audit Tools", detail: "Automated scan catching any un-scoped cross-tenant leakage" }
+                  ].map((layer, idx) => (
+                    <div key={idx} className="p-3.5 rounded-xl bg-slate-100 dark:bg-[#090D15] border border-slate-200 dark:border-[#273246] space-y-1">
+                      <span className="text-[10px] font-mono text-[#FF705C] font-bold block">{layer.num} &bull; {layer.name}</span>
+                      <p className="text-[11px] text-slate-700 dark:text-[#AAB5C6] leading-tight">{layer.detail}</p>
+                    </div>
+                  ))}
                 </div>
 
-                <div className="p-3 rounded bg-[#0A101D] border border-white/[0.06] text-xs text-emerald-400 flex items-center justify-between">
-                  <span>Status: 100% data isolation verified across multi-tenant boundaries.</span>
-                  <span className="text-slate-400 text-[11px]">Audit: Static Tooling Passed</span>
+                <div className="rounded-xl bg-[#0B0F19] border border-slate-800 dark:border-[#273246] p-4 font-mono text-xs text-[#F3F5FA] overflow-x-auto shadow-inner">
+                  <span className="text-[#6B7A90] block pb-2"># Django TenantScopedManager pattern</span>
+                  <pre className="text-[11.5px] leading-relaxed text-[#AAB5C6]">
+{`class TenantManager(models.Manager):
+    def get_queryset(self):
+        # Automatically scopes every query to current thread tenant
+        current_tenant = get_current_tenant()
+        if not current_tenant:
+            raise SecurityException("Unscoped tenant access detected")
+        return super().get_queryset().filter(company=current_tenant)`}
+                  </pre>
                 </div>
               </div>
             )}
 
-            {/* Tab 2: O(n) Org Tree */}
-            {activeTab === 'tree' && (
-              <div className="space-y-4">
-                <div className="flex items-center gap-2 text-cyan-400 text-xs">
-                  <span>$</span>
-                  <span className="text-white">run org_tree_builder.py --benchmark --nodes 500</span>
-                </div>
-
-                <div className="p-4 rounded-xl bg-[#0E172A] border border-white/[0.08] space-y-2">
-                  <div className="text-text-muted">// Single-pass linear tree construction with cycle detection</div>
-                  <div className="text-white">Input: 500 corporate hierarchy nodes with multi-root department directors</div>
-                  <div className="text-emerald-400 font-bold">Time Taken: 1.42ms &bull; Memory Allocation: O(n) &bull; Cycles Detected: 0</div>
-                  <div className="text-slate-300 font-sans text-xs">
-                    Replaced recursive database CTE calls with a single dictionary map index, guaranteeing instantaneous UI rendering on company directory pages.
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {/* Tab 3: N+1 Query Refactor */}
+            {/* Tab 3: N+1 Query Refactoring */}
             {activeTab === 'query' && (
-              <div className="space-y-4">
-                <div className="flex items-center gap-2 text-cyan-400 text-xs">
-                  <span>$</span>
-                  <span className="text-white">compare_perf --before "v1.2.0" --after "v1.3.0-bulk-role-map"</span>
+              <div className="space-y-6 animate-fadeIn">
+                <div className="pb-3 border-b border-slate-200 dark:border-[#273246]">
+                  <h3 className="text-xl font-bold font-heading text-slate-900 dark:text-[#F3F5FA]">
+                    N+1 Query Resolution (-80% Redundant Calls)
+                  </h3>
+                  <p className="text-xs text-slate-700 dark:text-[#AAB5C6] font-sans">
+                    Resolved critical database latency when rendering organizational employee directory.
+                  </p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="p-4 rounded-xl bg-rose-950/20 border border-rose-500/20 space-y-1.5">
-                    <span className="text-rose-400 font-bold text-xs uppercase block">Before Refactor (N+1 Storm)</span>
-                    <div className="text-white font-bold">184 SQL Queries per page</div>
-                    <div className="text-slate-400 text-xs">Response Latency: ~1,200ms</div>
-                    <p className="text-[11px] text-slate-400 font-sans">Each employee card initiated individual queries for role, department, and leave balance.</p>
+                  {/* Before */}
+                  <div className="p-4 rounded-xl bg-rose-50 dark:bg-[#090D15] border border-rose-300 dark:border-rose-500/30 space-y-2">
+                    <span className="text-xs font-mono text-rose-600 dark:text-rose-400 font-bold block">
+                      Before Optimization (130+ Queries)
+                    </span>
+                    <p className="text-xs text-slate-700 dark:text-[#AAB5C6]">
+                      Each employee row executed individual lookups for permissions, company roles, and leave balances in a loop.
+                    </p>
+                    <div className="text-[11px] font-mono text-rose-700 dark:text-rose-300 bg-rose-100 dark:bg-rose-500/10 p-2 rounded">
+                      Average response: ~1.28s &bull; DB CPU spikes under concurrent load
+                    </div>
                   </div>
 
-                  <div className="p-4 rounded-xl bg-emerald-950/20 border border-emerald-500/20 space-y-1.5">
-                    <span className="text-emerald-400 font-bold text-xs uppercase block">After Refactor (Bulk Role-Map)</span>
-                    <div className="text-white font-bold">3 Batched Queries total</div>
-                    <div className="text-emerald-400 text-xs font-bold">Response Latency: 185ms (84% Faster)</div>
-                    <p className="text-[11px] text-slate-400 font-sans">Batch prefetching via select_related and bulk hash index mapping eliminated database load.</p>
+                  {/* After */}
+                  <div className="p-4 rounded-xl bg-emerald-50 dark:bg-[#090D15] border border-emerald-300 dark:border-[#28C49A]/40 space-y-2">
+                    <span className="text-xs font-mono text-emerald-600 dark:text-[#28C49A] font-bold block">
+                      After Refactor (2 Batched Queries)
+                    </span>
+                    <p className="text-xs text-slate-700 dark:text-[#AAB5C6]">
+                      Prefetched role maps into an in-memory dictionary; single SQL batch query with tenant-composite index.
+                    </p>
+                    <div className="text-[11px] font-mono text-emerald-700 dark:text-[#28C49A] bg-emerald-100 dark:bg-[#28C49A]/10 p-2 rounded">
+                      Average response: ~240ms &bull; 80% fewer database roundtrips
+                    </div>
                   </div>
                 </div>
               </div>
             )}
 
-            {/* Tab 4: Groq LLM Chatbot */}
-            {activeTab === 'groq' && (
-              <div className="space-y-4">
-                <div className="flex items-center gap-2 text-cyan-400 text-xs">
-                  <span>$</span>
-                  <span className="text-white">groq_agent --auth "employee-id:4082" --query "How many casual leave days do I have left?"</span>
+            {/* Tab 4: O(n) Org Tree Builder */}
+            {activeTab === 'tree' && (
+              <div className="space-y-6 animate-fadeIn">
+                <div className="pb-3 border-b border-slate-200 dark:border-[#273246]">
+                  <h3 className="text-xl font-bold font-heading text-slate-900 dark:text-[#F3F5FA]">
+                    O(n) Adjacency-List Hierarchy Builder
+                  </h3>
+                  <p className="text-xs text-slate-700 dark:text-[#AAB5C6] font-sans">
+                    Constructs recursive organization charts in linear time without nested database queries.
+                  </p>
                 </div>
 
-                <div className="p-4 rounded-xl bg-[#0E172A] border border-white/[0.08] space-y-2">
-                  <div className="text-slate-500 text-xs">// Dual Auth Verified: Employee-ID mode (Staff role scoped)</div>
-                  <div className="text-purple-400 text-xs">// Groq Llama 3 Inference: 145ms response time</div>
-                  <div className="text-white font-sans text-xs sm:text-sm pl-2 border-l-2 border-cyan-400">
-                    "You have <strong>4 days of Casual Leave</strong> and <strong>11 days of Earned Leave</strong> available. All past requests have been audited and debited via the double-entry ledger."
-                  </div>
-                  <div className="text-emerald-400 text-[11px] pt-1">
-                    &bull; Access logged to audit table: transaction_id #98142 &bull; No tenant boundary leaks.
-                  </div>
+                <div className="rounded-xl bg-[#0B0F19] border border-slate-800 dark:border-[#273246] p-4 font-mono text-xs text-[#F3F5FA] overflow-x-auto shadow-inner">
+                  <span className="text-[#6B7A90] block pb-2"># Linear time hierarchy assembly</span>
+                  <pre className="text-[11.5px] leading-relaxed text-[#AAB5C6]">
+{`def build_org_tree(employees):
+    nodes = {emp['id']: {**emp, 'children': []} for emp in employees}
+    root_nodes = []
+    for emp_id, node in nodes.items():
+        parent_id = node.get('reports_to_id')
+        if parent_id and parent_id in nodes:
+            nodes[parent_id]['children'].append(node)
+        else:
+            root_nodes.append(node)
+    return root_nodes  # O(n) time and O(n) space`}
+                  </pre>
                 </div>
               </div>
             )}
